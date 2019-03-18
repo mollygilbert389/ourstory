@@ -1,0 +1,25 @@
+{
+  "name": "ourstory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mollygilbert389/ourstory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mollygilbert389/ourstory/issues"
+  },
+  "homepage": "https://github.com/mollygilbert389/ourstory#readme",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "if-env": "^1.0.4",
+    "path": "^0.12.7"
+  }
+}
