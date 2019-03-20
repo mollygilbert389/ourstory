@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Book from "./components/Book";
 import Login from "./components/Login";
 import Title from "./components/Title";
+import Footer from "./components/Footer"
 
 class App extends Component {
 
@@ -14,7 +15,12 @@ class App extends Component {
 
         </Login>
         
-        <Book/>
+        <Book>
+
+        </Book>
+        <Footer>
+
+        </Footer>
       </div>
     );
   }
