@@ -1,8 +1,9 @@
 .login {
-    width: 100%;
     text-align: center;
-    /* font-size: 3rem; */
     color: black;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     font-family: 'Josefin Sans', sans-serif;
+    border: 2px solid black;
+    height: 100px;
+    width: 100px;
   }
