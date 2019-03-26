@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Book from "./components/Book";
 import Login from "./components/Login";
+import SignOut from "./components/SignOut";
 import Title from "./components/Title";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -9,6 +10,7 @@ import TextBox from "./components/TextBox"
 class App extends Component {
   state = {
     showLogin: true,
+    showSignOut: false,
     showTextBox: false
   }
 
@@ -16,28 +18,34 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
-       
-        {this.state.showLogin ? 
-       <div> 
-        <Login>
+        <Navbar>
+          <SignOut>
+          {this.state.showSignOut}
+          </SignOut>
+        </Navbar>
 
-        </Login>
-        
-        </div> : null
-      } 
+        {this.state.showLogin ?
+          <div>
+            <Login>
 
-      <TextBox>
+            </Login>
 
-      </TextBox>
-        
-      <Book>
+          </div> : null
+        }
 
-      </Book>
+        {/* <Login /> */}
 
-      <Footer>
+        <TextBox>
 
-      </Footer>
+        </TextBox>
+
+        <Book>
+
+        </Book>
+
+        <Footer>
+
+        </Footer>
       </div>
     );
   }

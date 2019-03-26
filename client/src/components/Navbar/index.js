@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import SignOut from "../SignOut";
 
 function Navbar(props) {
     return (
@@ -13,9 +14,10 @@ function Navbar(props) {
               {props.message}
             </h3>
           <div className = "navbar-brand justify-content-end">
-            <h3 className = "score">
+          <SignOut />
+            {/* <h3 className = "score">
             <a className = "game" className ="navbar-brand game" href="/">Login</a>
-            </h3>
+            </h3> */}
           </div>
       </nav>
       </div>
