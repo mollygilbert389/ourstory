@@ -1,14 +1,21 @@
 * {
-    box-sizing: border-box;
-    font-family: sans-serif;
-  }
-  
-  html, body, #root {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-  }
-  
-  .message {
-    text-align: center;
-  }
+  box-sizing: border-box;
+  font-family: 'Baloo Chettan', cursive;
+}
+
+html, body, #root {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-image: url('https://uxdesign247.com/wp-content/uploads/2018/07/white-texture-backgrounds.jpg');
+
+}
+
+.message {
+  text-align: center;
+}
+
+.theContainer{
+  height: 100%
+}
+

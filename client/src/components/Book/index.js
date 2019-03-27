@@ -9,7 +9,7 @@ function Book(props) {
   <div className="rightside">
     Right side div
   </div>
-  </div>;
+  </div>
 }
 
 export default Book;

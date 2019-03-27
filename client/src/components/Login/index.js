@@ -3,6 +3,7 @@ import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 import Navbar from "../Navbar";
+import "./style.css";
  
 // Configure Firebase.
 const config = {
@@ -61,7 +62,7 @@ class Login extends React.Component {
           <span>
             {/* <div>Signed In!</div>
             <button onClick={() => this.signOut()}>Sign Out!</button> */}
-            <h1>Welcome {firebase.auth().currentUser.displayName}. Our story is your story. </h1>
+            <h1 className="heading">Welcome {firebase.auth().currentUser.displayName}.</h1>
           </span>
         ) : (
           <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
