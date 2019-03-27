@@ -7,23 +7,18 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import TextBox from "./components/TextBox"
 
-
 class App extends Component {
   state = {
     showLogin: true,
-    showSignOut: false,
+    // showSignOut: false,
     showTextBox: false
   }
 
 
   render() {
     return (
-      <div className = "theContainer">
-        <Navbar>
-          <SignOut>
-          {this.state.showSignOut}
-          </SignOut>
-        </Navbar>
+      <div>
+        
 
         {this.state.showLogin ?
           <div>

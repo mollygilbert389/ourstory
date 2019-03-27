@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 const db = require("../models");
 
@@ -5,15 +6,14 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/storylist"
+  "mongodb://localhost/reactreadinglist"
 );
 
-const sentanceSeed = [
-];
+const bookSeed = [];
 
-db.Story
+db.Book
   .remove({})
-  .then(() => db.Story.collection.insertMany(sentanceSeed))
+  .then(() => db.Book.collection.insertMany(bookSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
