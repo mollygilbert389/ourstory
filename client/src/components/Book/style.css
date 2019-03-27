@@ -3,7 +3,7 @@
   height: 100%;
   text-align: center;
   background-image: url('../assets/book.png');
-  position: fixed;
+  position: absolute;
   top: 300px;
   background-size: cover;
 }
