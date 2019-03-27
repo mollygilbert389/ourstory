@@ -2,6 +2,7 @@
 import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
+import Navbar from "../Navbar";
  
 // Configure Firebase.
 const config = {
@@ -50,6 +51,11 @@ class Login extends React.Component {
   render() {
     return (
       <div>
+        <Navbar
+          signOut = {() => this.signOut()}
+          isSignedOut = {this.state.isSignedIn}
+         
+        />
         {this.state.isSignedIn ? (
           // replace this with jsx for home page
           <span>

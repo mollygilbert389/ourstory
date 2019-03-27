@@ -10,7 +10,7 @@ import TextBox from "./components/TextBox"
 class App extends Component {
   state = {
     showLogin: true,
-    showSignOut: false,
+    // showSignOut: false,
     showTextBox: false
   }
 
@@ -18,11 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar>
-          <SignOut>
-          {this.state.showSignOut}
-          </SignOut>
-        </Navbar>
+        
 
         {this.state.showLogin ?
           <div>
