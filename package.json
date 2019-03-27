@@ -23,11 +23,17 @@
   },
   "homepage": "https://github.com/mollygilbert389/ourstory#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "concurrently": "^4.1.0",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
+    "i": "^0.3.6",
     "if-env": "^1.0.4",
     "mongoose": "^5.4.19",
     "nodemon": "^1.18.10",
+    "npm": "^6.9.0",
     "path": "^0.12.7"
   }
 }

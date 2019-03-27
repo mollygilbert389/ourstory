@@ -2,9 +2,9 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    background-image: url('https://dumielauxepices.net/sites/default/files/scripture-clipart-open-book-outline-758548-6378382.png');
+    background-image: url('../assets/book.png');
     position: fixed;
-    top: 500px;
+    top: 300px;
     background-size: cover;
   }
 

@@ -3,6 +3,18 @@
 }
 
 .textbox {
-    height: 300px;
+    height: 100px;
     width: 500px;
+    border-radius: 5px;
+}
+
+.submit {
+    margin-top: 10px;
+    background-color: rgb(11, 56, 2);
+    color: white;
+    border-radius: 5px;
+}
+
+.direction {
+    color: black;
 }

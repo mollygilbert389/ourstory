@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import TextBox from "./components/TextBox"
 
+
 class App extends Component {
   state = {
     showLogin: true,
@@ -17,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className = "theContainer">
         <Navbar>
           <SignOut>
           {this.state.showSignOut}

@@ -1,9 +1,20 @@
 .login {
     text-align: center;
-    color: black;
+    color: white;
     margin-bottom: 10px;
     font-family: 'Josefin Sans', sans-serif;
     border: 2px solid black;
     height: 100px;
     width: 100px;
+  }
+
+  .heading {
+    color: white;
+    font-size: 35px;
+    text-align: center;
+    background-color: rgba(11, 56, 2, 0.801);
+    margin-top: 5px;
+    margin-right: 200px;
+    margin-left: 200px;
+    border-radius: 5px;
   }
