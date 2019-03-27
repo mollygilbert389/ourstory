@@ -14,7 +14,10 @@ function Navbar(props) {
               {props.message}
             </h3>
           <div className = "navbar-brand justify-content-end">
-          <SignOut />
+          <SignOut
+          signOut = {props.signOut}
+          isSignedOut = {props.isSignedOut}
+          />
             {/* <h3 className = "score">
             <a className = "game" className ="navbar-brand game" href="/">Login</a>
             </h3> */}
