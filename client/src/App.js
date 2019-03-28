@@ -5,20 +5,26 @@ import SignOut from "./components/SignOut";
 import Title from "./components/Title";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import TextBox from "./components/TextBox"
+import { TextBox, Btn } from "./components/TextBox"
+
+
+
 
 class App extends Component {
   state = {
     showLogin: true,
     // showSignOut: false,
-    showTextBox: false
+    showTextBox: false,
+    sentence: ""
+
+
   }
 
 
   render() {
     return (
       <div>
-        
+
 
         {this.state.showLogin ?
           <div>
@@ -31,9 +37,20 @@ class App extends Component {
 
         {/* <Login /> */}
 
-        <TextBox>
+        <TextBox
+         value={this.state.sentence}
+         name="sentence"
+         placeholder="Your Contribution ;-) (160 characters max)"
+
+        >
 
         </TextBox>
+        <Btn onClick={function(){
+          console.log("hi");
+        }}>
+        
+        </Btn>
+
 
         <Book>
 
