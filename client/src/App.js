@@ -4,16 +4,35 @@ import Login from "./components/Login";
 // import SignOut from "./components/SignOut";
 // import Title from "./components/Title";
 import Footer from "./components/Footer";
+
 // import Navbar from "./components/Navbar";
 import TextBox from "./components/TextBox"
 import axios from "axios";
+// =======
+// import Navbar from "./components/Navbar";
+// import { TextBox, Btn } from "./components/TextBox"
+// import API from "./utils/API"
+
+
+// API.getBook().then(function (res, req) {
+//   res.data.forEach(element => {
+//     console.log(element.sentence);
+//     // div.appendChild(element.author);
+//   });
+//   console.log(res);
+// })
+
 
 class App extends Component {
   state = {
     showLogin: true,
     // showSignOut: false,
-    showTextBox: false
+    showTextBox: false,
+    sentence: ""
+
+
   }
+
 
   addText = () => {
     var obj ={
@@ -24,10 +43,27 @@ class App extends Component {
     axios.post("/api/books",obj).then((data)=>console.log(data));
   }
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    var x = document.getElementById("textarea").value;
+    if (this.state.sentence) {
+      API.saveBook({
+        sentence: this.state.sentence,
+      })
+        .then(res => this.loadBooks()).then(
+          function(){
+            window.location.reload();
+          }
+          )
+        .catch(err => console.log(err));
+    }
+  };
+
+
   render() {
     return (
       <div>
-        
+
 
         {this.state.showLogin ?
           <div>
@@ -38,11 +74,27 @@ class App extends Component {
           </div> : null
         }
 
+
         <TextBox 
         addText = {() => this.addText()}
         />
 
         
+
+        {/* <Login /> */}
+        <TextBox
+          value={this.state.sentence}
+          name="sentence"
+        >
+        </TextBox>
+        <Btn
+          disabled={(this.state.sentence)}
+          onClick={this.handleFormSubmit}
+        >
+
+        </Btn>
+
+
 
         <Book >
 

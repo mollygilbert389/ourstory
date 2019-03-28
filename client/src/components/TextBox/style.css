@@ -6,6 +6,7 @@
     height: 100px;
     width: 500px;
     border-radius: 5px;
+    margin:auto;
 }
 
 .submit {
@@ -17,4 +18,14 @@
 
 .direction {
     color: black;
+}
+#textarea{
+margin: auto;
+width: 900px;
+}
+
+.btn{
+    margin: auto;
+
+    margin-right: 100px;
 }
