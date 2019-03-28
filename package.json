@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/mollygilbert389/ourstory#readme",
   "dependencies": {
-
     "axios": "^0.18.0",
     "concurrently": "^4.1.0",
     "dotenv": "^7.0.0",

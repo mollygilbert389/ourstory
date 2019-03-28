@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import Book from "./components/Book";
 import Login from "./components/Login";
-// import SignOut from "./components/SignOut";
-// import Title from "./components/Title";
 import Footer from "./components/Footer";
-
-// import Navbar from "./components/Navbar";
-import TextBox from "./components/TextBox"
 import axios from "axios";
-// =======
-// import Navbar from "./components/Navbar";
+import TextBox from './components/TextBox'
 // import { TextBox, Btn } from "./components/TextBox"
-// import API from "./utils/API"
+import API from "./utils/API"
 
-
+//eddy commit
 // API.getBook().then(function (res, req) {
 //   res.data.forEach(element => {
 //     console.log(element.sentence);
@@ -22,7 +16,6 @@ import axios from "axios";
 //   console.log(res);
 // })
 
-
 class App extends Component {
   state = {
     showLogin: true,
@@ -30,9 +23,7 @@ class App extends Component {
     showTextBox: false,
     sentence: ""
 
-
   }
-
 
   addText = () => {
     var obj ={
@@ -43,21 +34,22 @@ class App extends Component {
     axios.post("/api/books",obj).then((data)=>console.log(data));
   }
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    var x = document.getElementById("textarea").value;
-    if (this.state.sentence) {
-      API.saveBook({
-        sentence: this.state.sentence,
-      })
-        .then(res => this.loadBooks()).then(
-          function(){
-            window.location.reload();
-          }
-          )
-        .catch(err => console.log(err));
-    }
-  };
+  //Eddy commit
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   var x = document.getElementById("textarea").value;
+  //   if (this.state.sentence) {
+  //     API.saveBook({
+  //       sentence: this.state.sentence,
+  //     })
+  //       .then(res => this.loadBooks()).then(
+  //         function(){
+  //           window.location.reload();
+  //         }
+  //         )
+  //       .catch(err => console.log(err));
+  //   }
+  // };
 
 
   render() {
@@ -82,7 +74,7 @@ class App extends Component {
         
 
         {/* <Login /> */}
-        <TextBox
+        {/* <TextBox
           value={this.state.sentence}
           name="sentence"
         >
@@ -92,7 +84,7 @@ class App extends Component {
           onClick={this.handleFormSubmit}
         >
 
-        </Btn>
+        </Btn> */}
 
 
 

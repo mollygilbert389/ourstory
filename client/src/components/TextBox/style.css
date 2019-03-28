@@ -14,6 +14,9 @@
     background-color: rgb(11, 56, 2);
     color: white;
     border-radius: 5px;
+    width: 130px;
+    height: 50px;
+    font-size: 30px;
 }
 
 .direction {
@@ -26,6 +29,5 @@ width: 900px;
 
 .btn{
     margin: auto;
-
     margin-right: 100px;
 }

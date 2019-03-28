@@ -6,9 +6,9 @@ function SignOut(props) {
   console.log("signOut");
   return (
   
-      <div className="SignOut">
+      <div>
         <div>
-          <button onClick={props.signOut} 
+          <button className="SignOut" onClick={props.signOut} 
           style={{display: props.isSignedOut ? 'block' : 'none' }}>Sign Out!</button>
         </div>
       </div>

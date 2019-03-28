@@ -8,7 +8,7 @@ html, body, #root {
   margin: 0;
   height: 100%;
   background-image: url('https://uxdesign247.com/wp-content/uploads/2018/07/white-texture-backgrounds.jpg');
-
+  background-size: cover;
 }
 
 .message {
