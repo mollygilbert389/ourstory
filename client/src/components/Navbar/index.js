@@ -6,7 +6,7 @@ function Navbar(props) {
     return (
       <div>
         <nav className ="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a className = "game" className ="navbar-brand game" href="/">Our Story</a>
+          <a className = "game navbar-brand game" href="/">Our Story</a>
           <div className = "mr-auto">
   
           </div>

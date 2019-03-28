@@ -1,21 +1,27 @@
 import React, { Component } from "react";
 import Book from "./components/Book";
 import Login from "./components/Login";
-import SignOut from "./components/SignOut";
-import Title from "./components/Title";
+// import SignOut from "./components/SignOut";
+// import Title from "./components/Title";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import { TextBox, Btn } from "./components/TextBox"
-import API from "./utils/API"
+
+// import Navbar from "./components/Navbar";
+import TextBox from "./components/TextBox"
+import axios from "axios";
+// =======
+// import Navbar from "./components/Navbar";
+// import { TextBox, Btn } from "./components/TextBox"
+// import API from "./utils/API"
 
 
-API.getBook().then(function (res, req) {
-  res.data.forEach(element => {
-    console.log(element.sentence);
-    // div.appendChild(element.author);
-  });
-  console.log(res);
-})
+// API.getBook().then(function (res, req) {
+//   res.data.forEach(element => {
+//     console.log(element.sentence);
+//     // div.appendChild(element.author);
+//   });
+//   console.log(res);
+// })
+
 
 class App extends Component {
   state = {
@@ -25,6 +31,16 @@ class App extends Component {
     sentence: ""
 
 
+  }
+
+
+  addText = () => {
+    var obj ={
+      userID:"s9UGkEuCPeYVKtHS4YzGIvmUY4i2",
+      text: "Hello World!"
+    };
+    // console.log("posting");
+    axios.post("/api/books",obj).then((data)=>console.log(data));
   }
 
   handleFormSubmit = event => {
@@ -43,6 +59,7 @@ class App extends Component {
     }
   };
 
+
   render() {
     return (
       <div>
@@ -56,6 +73,13 @@ class App extends Component {
 
           </div> : null
         }
+
+
+        <TextBox 
+        addText = {() => this.addText()}
+        />
+
+        
 
         {/* <Login /> */}
         <TextBox
@@ -71,7 +95,8 @@ class App extends Component {
         </Btn>
 
 
-        <Book>
+
+        <Book >
 
         </Book>
 
