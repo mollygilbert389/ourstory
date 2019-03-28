@@ -6,10 +6,16 @@ import Title from "./components/Title";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { TextBox, Btn } from "./components/TextBox"
+import API from "./utils/API"
 
-//import API from "../utils/API";
 
-
+API.getBook().then(function (res, req) {
+  res.data.forEach(element => {
+    console.log(element.sentence);
+    // div.appendChild(element.author);
+  });
+  console.log(res);
+})
 
 class App extends Component {
   state = {
@@ -24,17 +30,17 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     var x = document.getElementById("textarea").value;
-    // if (this.state.sentence) {
-    //   API.saveBook({
-    //     sentence: this.state.sentence,
-    //   })
-    //     .then(res => this.loadBooks()).then(
-    //       function(){
-    //         window.location.reload();
-    //       }
-    //       )
-    //     .catch(err => console.log(err));
-    // }
+    if (this.state.sentence) {
+      API.saveBook({
+        sentence: this.state.sentence,
+      })
+        .then(res => this.loadBooks()).then(
+          function(){
+            window.location.reload();
+          }
+          )
+        .catch(err => console.log(err));
+    }
   };
 
   render() {
