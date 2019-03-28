@@ -1,14 +1,18 @@
 import React from "react";
 import "./style.css";
 
-const TextBox = (props) => {
+function TextBox(props) {
+    console.log(props);
     return (
-    <div className="textBoxDiv">
-    <p className="direction">Please add your sentance here</p>
-    <input className="textbox" type="text"/>
-    
-    <div><button className="submit">Submit</button></div>
-    </div>
+        <div className="textBoxDiv">
+            <p className="direction">Please add your sentence here</p>
+            <input className="textbox" type="text" />
+
+            <div>
+                <button onClick={props.addText}>Submit
+                </button>
+            </div>
+        </div>
     )
 }
 

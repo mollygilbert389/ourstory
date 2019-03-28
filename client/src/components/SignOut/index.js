@@ -1,8 +1,9 @@
 import React from "react";
 import "./style.css";
-import Login from "../Login";
+// import Login from "../Login";
 
 function SignOut(props) {
+  console.log("signOut");
   return (
   
       <div className="SignOut">
