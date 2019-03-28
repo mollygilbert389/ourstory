@@ -17,11 +17,14 @@ import "./style.css";
 
 export function TextBox(props) {
     return (
-        <div id="text" className="form-group">
-            <textarea maxlength="160" className="form-control" rows="5" {...props} />
+        <div id="textarea" className="form-group">
+            <textarea name="sentence"
+                id="textarea" placeholder="Your Contribution ;-) (160 characters max)"
+                required="true" maxlength="160" rows="5" className="form-control" />
         </div>
     );
 }
+
 export function Btn(props) {
     return (
         <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">

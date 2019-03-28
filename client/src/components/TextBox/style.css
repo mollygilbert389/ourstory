@@ -19,12 +19,13 @@
 .direction {
     color: black;
 }
-#text{
-    margin-left: 100px;
-    margin-right: 100px;
-
+#textarea{
+margin: auto;
+width: 900px;
 }
 
 .btn{
+    margin: auto;
+
     margin-right: 100px;
 }

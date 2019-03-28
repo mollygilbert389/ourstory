@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { TextBox, Btn } from "./components/TextBox"
 
+//import API from "../utils/API";
 
 
 
@@ -20,6 +21,21 @@ class App extends Component {
 
   }
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    var x = document.getElementById("textarea").value;
+    // if (this.state.sentence) {
+    //   API.saveBook({
+    //     sentence: this.state.sentence,
+    //   })
+    //     .then(res => this.loadBooks()).then(
+    //       function(){
+    //         window.location.reload();
+    //       }
+    //       )
+    //     .catch(err => console.log(err));
+    // }
+  };
 
   render() {
     return (
@@ -36,19 +52,16 @@ class App extends Component {
         }
 
         {/* <Login /> */}
-
         <TextBox
-         value={this.state.sentence}
-         name="sentence"
-         placeholder="Your Contribution ;-) (160 characters max)"
-
+          value={this.state.sentence}
+          name="sentence"
+        >
+        </TextBox>
+        <Btn
+          disabled={(this.state.sentence)}
+          onClick={this.handleFormSubmit}
         >
 
-        </TextBox>
-        <Btn onClick={function(){
-          console.log("hi");
-        }}>
-        
         </Btn>
 
 
