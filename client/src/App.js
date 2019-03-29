@@ -21,17 +21,17 @@ class App extends Component {
     showLogin: true,
     // showSignOut: false,
     showTextBox: false,
-    sentence: ""
+    UserText: []
 
   }
 
   addText = () => {
     var obj ={
-      userID:"s9UGkEuCPeYVKtHS4YzGIvmUY4i2",
-      text: "Hello World!"
+      userID: this.userID,
+      UserText: this.UserText
     };
     // console.log("posting");
-    axios.post("/api/books",obj).then((data)=>console.log(data));
+    axios.post("http://localhost:3001/api/books",obj).then((data)=>console.log(data));
   }
 
   //Eddy commit
@@ -68,7 +68,7 @@ class App extends Component {
 
 
         <TextBox 
-        addText = {() => this.addText()}
+        onClick = {() => this.addText()}
         />
 
         

@@ -7,7 +7,10 @@ html, body, #root {
   padding: 0;
   margin: 0;
   height: 100%;
-  background-image: url('https://uxdesign247.com/wp-content/uploads/2018/07/white-texture-backgrounds.jpg');
+}
+
+body {
+  background-image: url('./components/assets/WhiteBackground.jpg');
   background-size: cover;
 }
 

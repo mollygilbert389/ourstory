@@ -11,7 +11,7 @@ mongoose.connect(
 
 const bookSeed = [];
 
-db.Book
+db.UserText
   .remove({})
   .then(() => db.Book.collection.insertMany(bookSeed))
   .then(data => {

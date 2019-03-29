@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const userTextSchema = new Schema({
   userID: { type: String, required: true },
   date: { type: Date, default: Date.now },
-  text: { type: String, required: true }
+  UserText: { type: String, required: true }
 });
 
 const UserText = mongoose.model("UserText", userTextSchema);
