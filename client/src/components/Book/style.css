@@ -5,7 +5,11 @@
   text-align: center;
   background-image: url('../assets/book.png');
   position: absolute;
+<<<<<<< HEAD
   top: 200px;
+=======
+  top: 300px;
+>>>>>>> ff973f68a1021cefc217946795f13b0a69664bdb
   background-size: cover;
 }
 
