@@ -1,55 +1,83 @@
 .login {
-    text-align: center;
-    color: black;
+  text-align: center;
+  color: black;
+  margin-bottom: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  border: 2px solid black;
+  height: 100px;
+  width: 100px;
+}
+
+.heading {
+  color: white;
+  font-size: 35px;
+  text-align: center;
+  background-color: rgba(11, 56, 2, 0.801);
+  margin-top: 15px;
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.Btn1 {
+  margin: 400px;
+  color: red;
+
+}
+
+.signout {
+  margin-top: 15px;
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .heading {
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-left: 65px;
+    margin-right: 65px;
     margin-bottom: 10px;
-    font-family: 'Josefin Sans', sans-serif;
-    border: 2px solid black;
-    height: 100px;
-    width: 100px;
   }
 
-  .heading {
-    color: white;
-    font-size: 35px;
-    text-align: center;
-    background-color: rgba(11, 56, 2, 0.801);
+  .signout {
     margin-top: 15px;
-    margin-right: 200px;
-    margin-left: 200px;
     margin-bottom: 15px;
     border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
   }
+}
 
-  @media only screen and (max-width: 768px) {
-    .heading {
-      font-size: 20px;
-      margin: 0 auto;
-      margin-top: 5px;
-      margin-left: 65px;
-      margin-right: 65px;
-      margin-bottom: 10px;
-      
-    }
+@media only screen and (max-width: 500px) {
+  .heading {
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-left: 65px;
+    margin-right: 65px;
+    margin-bottom: 10px;
   }
-  
-  @media only screen and (min-width: 600px) {
-    .heading {
-      font-size: 20px;
-      margin: 0 auto;
-      margin-top: 5px;
-      margin-left: 65px;
-      margin-right: 65px;
-      margin-bottom: 10px;
-    }
+  .signout {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
   }
-  
-  @media only screen and (min-width: 768px) {
-    .heading {
-      font-size: 35px;
-      margin: 0 auto;
-      margin-top: 5px;
-      margin-right: 200px;
-      margin-left: 200px;
+}
 
-    }
+@media only screen and (min-width: 768px) {
+  .heading {
+    font-size: 35px;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    max-width: 50%;
   }
+}

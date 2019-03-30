@@ -10,6 +10,8 @@ import API from "../../utils/API"
 
 // Configure Firebase.
 const authApiKey = `${process.env.REACT_APP_authApiKey}`;
+const message = "Welcome! Our goal is to write the longest collabrative story ever written. Please sign in to add your part."
+const outMessage = ""
 
 const config = {
   apiKey: authApiKey,
@@ -130,6 +132,16 @@ class Login extends Component {
         ) : (
             <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
           )}
+
+          {this.state.isSignedIn ? (
+          <span>
+             <h1>{outMessage}</h1>
+          </span>
+        ) : (
+          <span>
+            <h1 className="signout">{message}</h1>
+        </span>
+        )}
 
         <TextBox
           // onClick = {() => this.addText()}

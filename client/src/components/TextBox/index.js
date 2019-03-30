@@ -17,18 +17,21 @@ import "./style.css";
 
 
 
+
 export function TextBox(props) {
     return (
-
-            <input style={{ display: props.isSignedOut ? 'block' : 'none' }} maxlength="160" className="form-control" {...props} />
-
+            <div className="stupid">
+                <textarea name="sentence" style={{display: props.isSignedOut ? 'block' : 'none' }}
+                    id="textarea" placeholder="Your Contribution ;-) (160 characters max)"
+                    required="true" maxlength="160" rows="5" className="form-control" />
+            </div>
     );
 
 }
 
 export function Btn(props) {
     return (
-        <button {...props} className="submit" style={{ display: props.isSignedOut ? 'block' : 'none' }}>
+        <button {...props} className="submit" id="btn1" style={{ display: props.isSignedOut ? 'block' : 'none' }}>
             {props.children}
             Submit
         </button>
@@ -37,7 +40,7 @@ export function Btn(props) {
 }
 export function Btn1(props) {
     return (
-        <button {...props} style={{ float: "right", marginBottom: 10, display: props.isSignedOut ? 'block' : 'none' }} className="btn btn-success">
+        <button {...props} id="btn1" style={{display: props.isSignedOut ? 'block' : 'none' }} className="btn btn-success">
             {props.children}
             Submit
       </button>
