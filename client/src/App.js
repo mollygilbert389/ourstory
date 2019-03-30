@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Book from "./components/Book";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
 import axios from "axios";
 import { TextBox, Btn, Btn1 } from "./components/TextBox"
+import Tab from './components/Tab/Tab'
 // import API from "./utils/API"
 
 
@@ -47,8 +49,19 @@ class App extends Component {
   render() {
     return (
       <div>
-
-
+          <Router>
+        <div className="row" style={{marginTop:200, paddingLeft: 15, position: "fixed", zIndex: 99}}>
+              <Route exact path="/dictionary" component={Tab}/>
+              <div className="col-sm-1">
+              <Link to="/dictionary" role="button" className="btn btn-link">
+              <i class="material-icons">check</i>
+              </Link>
+              <Link to="/" role="button" className="btn btn-link">
+              <i class="material-icons">cancel</i>
+              </Link>
+              </div>
+        </div>
+    </Router>
         {/* TextBox testing*/}{this.state.showTextBox ?
           <div>
             <Login>
@@ -86,9 +99,11 @@ class App extends Component {
         </Btn1>
 
         
-        {/* <Book >
+        {<Book >
 
-        </Book> */}
+        </Book>}
+
+
 
         <Footer>
 
