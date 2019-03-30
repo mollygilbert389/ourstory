@@ -3,6 +3,7 @@ import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 import Navbar from "../Navbar";
+import TextBox from "../TextBox";
 import "./style.css";
  
 // Configure Firebase.
@@ -59,6 +60,8 @@ class Login extends React.Component {
           isSignedOut = {this.state.isSignedIn}
          
         />
+
+        
         {this.state.isSignedIn ? (
           // replace this with jsx for home page
           <span>
@@ -69,6 +72,13 @@ class Login extends React.Component {
         ) : (
           <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
         )}
+
+        {/* TextBox testing*/}
+        <TextBox 
+        // onClick = {() => this.addText()}
+        isSignedOut = {this.state.isSignedIn}
+        />
+        
       </div>
     )
     

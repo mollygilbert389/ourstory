@@ -13,8 +13,9 @@
     font-size: 35px;
     text-align: center;
     background-color: rgba(11, 56, 2, 0.801);
-    margin-top: 5px;
+    margin-top: 15px;
     margin-right: 200px;
     margin-left: 200px;
+    margin-bottom: 15px;
     border-radius: 5px;
   }

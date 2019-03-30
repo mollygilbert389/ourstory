@@ -27,12 +27,12 @@ class App extends Component {
   }
 
   addText = () => {
-    var obj ={
+    var obj = {
       userID: this.userID,
       UserText: this.UserText
     };
     // console.log("posting");
-    axios.post("http://localhost:3001/api/books",obj).then((data)=>console.log(data));
+    axios.post("http://localhost:3001/api/books", obj).then((data) => console.log(data));
   }
 
   //Eddy commit
@@ -58,6 +58,36 @@ class App extends Component {
       <div>
 
 
+        {/* TextBox testing*/}{this.state.showTextBox ?
+          <div>
+            <Login>
+
+            </Login>
+          </div> : null
+
+        }
+
+
+
+        <TextBox
+          onClick={() => this.addText()}
+        />
+
+
+
+
+        {/* <TextBox
+value={this.state.sentence}
+name="sentence"
+>
+</TextBox>
+<Btn
+disabled={(this.state.sentence)}
+onClick={this.handleFormSubmit}
+>
+
+</Btn> */}
+
         {this.state.showLogin ?
           <div>
             <Login>
@@ -68,24 +98,6 @@ class App extends Component {
         }
 
 
-        <TextBox 
-        onClick = {() => this.addText()}
-        />
-
-        
-
-        {/* <Login /> */}
-        {/* <TextBox
-          value={this.state.sentence}
-          name="sentence"
-        >
-        </TextBox>
-        <Btn
-          disabled={(this.state.sentence)}
-          onClick={this.handleFormSubmit}
-        >
-
-        </Btn> */}
 
 
 
