@@ -6,8 +6,10 @@ import Navbar from "../Navbar";
 import "./style.css";
  
 // Configure Firebase.
+const authApiKey = `${process.env.REACT_APP_authApiKey}`;
+
 const config = {
-  apiKey: 'AIzaSyBJ9oii5VC84ZLRFDaii_aAsNV21NPA_Ak',
+  apiKey: authApiKey,
   authDomain: 'our-story-a8a0d.firebaseapp.com',
   // ...
 };
