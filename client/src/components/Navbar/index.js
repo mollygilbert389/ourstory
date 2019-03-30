@@ -5,8 +5,8 @@ import SignOut from "../SignOut";
 function Navbar(props) {
     return (
       <div>
-        <nav className ="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a className = "game navbar-brand game" href="/">Our Story</a>
+          <nav className ="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a className = "navbar-brand" href="/">Our Story</a>
           <div className = "mr-auto">
   
           </div>
