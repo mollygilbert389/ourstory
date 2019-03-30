@@ -1,11 +1,13 @@
 // Import FirebaseAuth and firebase.
-import React from 'react';
+import React, { Component } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 import Navbar from "../Navbar";
-import TextBox from "../TextBox";
+import { TextBox, Btn1 } from "../TextBox";
 import "./style.css";
- 
+import axios from "axios";
+import API from "../../utils/API"
+
 // Configure Firebase.
 const authApiKey = `${process.env.REACT_APP_authApiKey}`;
 
@@ -15,14 +17,17 @@ const config = {
   // ...
 };
 firebase.initializeApp(config);
- 
-class Login extends React.Component {
- 
+
+class Login extends Component {
+
   // The component's Local state.
   state = {
-    isSignedIn: false // Local signed-in state.
+    isSignedIn: false, // Local signed-in state.
+    sentence: "",
+    books: []
+
   };
- 
+
   // Configure FirebaseUI.
   uiConfig = {
     // Popup signin flow rather than redirect flow.
@@ -36,32 +41,85 @@ class Login extends React.Component {
       signInSuccessWithAuthResult: () => false
     }
   };
- 
+
   // Listen to the Firebase Auth state and set the local state.
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({ 
+      this.setState({
         isSignedIn: !!user,
         // userID: user.id
       })
-      localStorage.setItem("userID",user.uid)
+      localStorage.setItem("userID", user.uid)
     })
+    this.loadBooks();
   }
   signOut = () => {
     firebase.auth().signOut();
-    this.setState({isSignedIn: false})
+    this.setState({ isSignedIn: false })
   }
+  loadBooks = () => {
+    API.getBooks()
+      .then(res =>
+        this.setState({ books: res.data, UserText: "" })
+        // res.data.forEach(element => {
+        //   console.log(element.author);
+        // });
+        // console.log(res);
+      )
+      .catch(err => console.log(err));
+  };
+  yay = () => {
+    //console.log("eer");
+    //var a=TextBox.value();
+    //console.log(this.state.sentence)
+    var obj = {
+      //userID: this.sentence,
+      UserText: this.state.sentence
+    };
+    console.log(obj);
+    // console.log("posting");
+    axios.post("http://localhost:3001/api/books", obj).then((data) => console.log(data));
+  }
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
+  loadBooks = () => {
+    API.getBooks()
+      .then(res =>
+        this.setState({ books: res.data, author: "" })
+        // res.data.forEach(element => {
+        //   console.log(element.author);
+        // });
+        // console.log(res);
+      )
+      .catch(err => console.log(err));
+  };
+  handleFormSubmit = event => {
+    event.preventDefault();
+    //if (this.state.sentence) {
+    API.saveBook({
+      UserText: this.state.sentence,
+    })
+    // .then(res => this.loadBooks()).then(
+    //   function(){
+    //     window.location.reload();
+    //   }
+    //   )
+    // .catch(err => console.log(err));
+    // }
+  };
   render() {
     return (
       <div>
         <Navbar
-          signOut = {() => this.signOut()}
-          isSignedOut = {this.state.isSignedIn}
-         
+          signOut={() => this.signOut()}
+          isSignedOut={this.state.isSignedIn}
         />
 
-        
         {this.state.isSignedIn ? (
           // replace this with jsx for home page
           <span>
@@ -70,18 +128,26 @@ class Login extends React.Component {
             <h1 className="heading">Welcome {firebase.auth().currentUser.displayName}.</h1>
           </span>
         ) : (
-          <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
-        )}
+            <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
+          )}
 
-        {/* TextBox testing*/}
-        <TextBox 
-        // onClick = {() => this.addText()}
-        isSignedOut = {this.state.isSignedIn}
+        <TextBox
+          // onClick = {() => this.addText()}
+          isSignedOut={this.state.isSignedIn}
+          value={this.state.sentence}
+          onChange={this.handleInputChange}
+          name="sentence"
+
         />
-        
+
+        <Btn1
+          isSignedOut={this.state.isSignedIn}
+          onClick={this.yay}
+        >
+        </Btn1>
       </div>
     )
-    
+
   }
 }
 export default Login;
