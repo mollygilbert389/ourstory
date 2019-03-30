@@ -10,18 +10,23 @@
 }
 
 .leftside {
-  margin: 100px;
-  margin-left: 150px;
-  float: left;
+  position: absolute;
+  margin-left: 10%;
+  height: 610px;
+  width: 425px;
+  top: 15%;
 }
 
 .rightside {
-  margin: 100px;
-  margin-right: 150px;
+  position: relative;
+  margin-right: 10%;
+  height: 610px;
+  width: 425px;
+  top: 15%;
   float: right;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
   .book {
     width: auto;
     height: 600px;
@@ -55,19 +60,15 @@
     text-align: center;
     background-image: url('../assets/book.png');
     top: 45%;
-    /* margin: 0 auto; */
+    margin: 0 auto;
   }
   
   .leftside {
-    margin: 10%;
-    margin-left: 10%;
-    float: left;
+
   }
   
   .rightside {
-    margin: 10%;
-    margin-right: 10%;
-    float: right;
+
   }
 }
 
@@ -93,4 +94,4 @@
     margin-right: 10%;
     float: right;
   }
-}
+} */

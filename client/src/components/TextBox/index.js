@@ -40,7 +40,7 @@ export function Btn(props) {
 }
 export function Btn1(props) {
     return (
-        <button {...props} id="btn1" style={{display: props.isSignedOut ? 'block' : 'none' }} className="btn btn-success">
+        <button {...props} id="btn1" style={{display: props.isSignedOut ? 'block' : 'none' }}>
             {props.children}
             Submit
       </button>
