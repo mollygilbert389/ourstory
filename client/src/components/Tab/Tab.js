@@ -17,7 +17,6 @@ const tabStyle = {
   position: 'static',
   zIndex: '10',
   marginLeft: '10px',
-  
 }
 
 const defStyle = {
