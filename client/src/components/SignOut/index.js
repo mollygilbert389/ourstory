@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 // import Login from "../Login";
 
+
 function SignOut(props) {
   console.log("signOut");
   return (

@@ -1,9 +1,13 @@
 import React from "react";
+import Radium from 'radium'
 
+const style = {
+  backgroundColor: 'backgroundColor: rgba(11, 56, 2, 0.801)',
+}
 
 export function Definition(props) {
   return (
-    <div>
+    <div style={style}>
       <ol>
         {props.words.map((
                     word => (

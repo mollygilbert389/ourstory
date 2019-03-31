@@ -6,8 +6,25 @@ import Footer from "./components/Footer";
 import axios from "axios";
 import { TextBox, Btn, Btn1 } from "./components/TextBox"
 import Tab from './components/Tab/Tab'
+import Radium from 'radium'
 // import API from "./utils/API"
 
+const dicButtons = { 
+  position: 'absolute',
+
+}
+
+const word = {
+  transform: 'rotate(90deg)',
+  transformOrigin: 'left top 0',
+  marginLeft: '80px',
+  backgroundColor: 'rgb(11, 56, 2)',
+  height: '25px',
+  width: '95px',
+  borderRadius: '8px',
+  color: 'white',
+  textAlign: 'center',
+}
 
 class App extends Component {
   state = {
@@ -49,19 +66,6 @@ class App extends Component {
   render() {
     return (
       <div>
-          <Router>
-        <div className="row" style={{marginTop:150, paddingLeft: 15, position: "absolute", zIndex: 99}}>
-              <Route exact path="/dictionary" component={Tab}/>
-              <div className="col-sm-1">
-              <Link to="/dictionary" role="button" className="btn btn-success">
-              <i class="material-icons">search</i>
-              </Link>
-              <Link to="/" role="button" className="btn btn-danger">
-              <i class="material-icons">cancel</i> 
-              </Link>
-              </div>
-        </div>
-    </Router>
         {/* TextBox testing*/}{this.state.showTextBox ?
           <div>
             <Login>
@@ -87,6 +91,31 @@ class App extends Component {
           </div> : null
         }
 
+        <Router>
+        <div className="row">
+              <Route exact path="/dictionary" component={Tab}/>
+              <div className="col-sm-1">
+             
+             <div style={dicButtons}>
+              <div className="search">
+              <Link to="/dictionary" role="button" className="btn btn-success">
+              <i className="material-icons">search</i>
+              </Link>
+              </div>
+              
+              <div className="cancel">
+              <Link to="/" role="button" className="btn btn-danger">
+              <i className="material-icons">cancel</i> 
+              </Link>
+              </div>
+              </div>
+              <div style={word}>
+                Dictionary
+              </div>
+             
+              </div>
+        </div>
+    </Router>
         
         <Btn1
           // disabled={(this.state.sentence)}
@@ -97,6 +126,8 @@ class App extends Component {
         >
 
         </Btn1>
+
+
 
         {<Book >
 
@@ -112,4 +143,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);

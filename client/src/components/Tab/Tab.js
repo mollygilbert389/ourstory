@@ -1,8 +1,35 @@
 import React from "react";
 import { Input, Button, Definition } from "../Resources"
 import '../../App.css';
+import Radium from 'radium'
+
 const axios = require('axios')
 
+const tabStyle = {
+  backgroundColor: 'rgb(11, 56, 2)',
+  borderRadius: '8px',
+  textAlign: 'center',
+  height: '250px',
+  width: '300px',
+  color: 'white',
+  fontSize: '15px',
+  position: 'aboslute',
+  position: 'static',
+  zIndex: '10',
+  marginLeft: '10px',
+  
+}
+
+const defStyle = {
+  backgroundColor: 'rgb(11, 56, 2)',
+  borderRadius: '8px',
+  width: '500px',
+  textAlign: 'left',
+  position: 'aboslute',
+  position: 'static',
+  zIndex: '10',
+  marginTop: '50px',
+}
 
 
 class Tab extends React.Component {
@@ -59,7 +86,7 @@ class Tab extends React.Component {
   }
   render() {
   return (
-    <div className="col-md-4">
+    <div className="col-md-4" style={tabStyle}>
       <h1>Search for a definition</h1>
       <form>
           <Input
@@ -73,12 +100,12 @@ class Tab extends React.Component {
                       }>
       Search
       </Button>
-
+      <div style={defStyle}>
       <Definition words={this.state.definitions}></Definition>
-
+      </div>
       </div>
   );
 }
 }
 
-export default Tab
+export default Radium(Tab)
