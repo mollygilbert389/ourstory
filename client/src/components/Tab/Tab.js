@@ -19,6 +19,7 @@ class Tab extends React.Component {
 
 
   searchWord = () =>{
+    if (this.state.searchTerm) {
     let word = this.state.searchTerm.toLocaleLowerCase()
       axios.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/' + word + '?key=' + process.env.REACT_APP_DICTIONARY_API_KEY)
         .then(response => {
@@ -48,6 +49,7 @@ class Tab extends React.Component {
           console.log(error);
         }) 
   }
+}
 
 
   handleSearchChange = event => {
