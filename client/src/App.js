@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import axios from "axios";
 import { TextBox, Btn, Btn1 } from "./components/TextBox"
 import Tab from './components/Tab/Tab'
-import Radium from 'radium'
+import Radium from 'radium' 
 // import API from "./utils/API"
 
 const dicButtons = { 
@@ -42,7 +42,7 @@ class App extends Component {
     };
     console.log(obj);
     // console.log("posting");
-    axios.post("http://localhost:3001/api/books", obj).then((data) => console.log(data));
+    axios.post(MONGODB_URI, obj).then((data) => console.log(data));
   }
  
   //Eddy commit
