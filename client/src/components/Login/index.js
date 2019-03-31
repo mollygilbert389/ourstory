@@ -7,29 +7,25 @@ import { TextBox, Btn1 } from "../TextBox";
 import "./style.css";
 import axios from "axios";
 import API from "../../utils/API"
-
 // Configure Firebase.
 const authApiKey = `${process.env.REACT_APP_authApiKey}`;
 const message = "Welcome! Our goal is to write the longest collabrative story ever written. Please sign in to add your part."
 const outMessage = ""
-
 const config = {
   apiKey: authApiKey,
   authDomain: 'our-story-a8a0d.firebaseapp.com',
   // ...
 };
 firebase.initializeApp(config);
-
 class Login extends Component {
-
   // The component's Local state.
   state = {
     isSignedIn: false, // Local signed-in state.
     sentence: "",
-    books: []
-
+    books: [],
+    users: [],
+    string: ""
   };
-
   // Configure FirebaseUI.
   uiConfig = {
     // Popup signin flow rather than redirect flow.
@@ -43,7 +39,6 @@ class Login extends Component {
       signInSuccessWithAuthResult: () => false
     }
   };
-
   // Listen to the Firebase Auth state and set the local state.
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
@@ -54,6 +49,23 @@ class Login extends Component {
       localStorage.setItem("userID", user.uid)
     })
     this.loadBooks();
+    this.getWords();
+  }
+  getWords = () => {
+    axios.get("http://localhost:3001/api/books")
+      .then((data1) => {
+        var string1;
+        var array = [];
+        data1.data.forEach(e => {
+          array.push(e.UserText);
+        })
+        array.reverse();
+        array.forEach(e => {
+          string1 += e + " ";
+        })
+        this.setState({ string: string1 })
+      }
+      );
   }
   signOut = () => {
     firebase.auth().signOut();
@@ -63,17 +75,12 @@ class Login extends Component {
     API.getBooks()
       .then(res =>
         this.setState({ books: res.data, UserText: "" })
-        // res.data.forEach(element => {
-        //   console.log(element.author);
-        // });
-        // console.log(res);
+      
       )
       .catch(err => console.log(err));
   };
   yay = () => {
-    //console.log("eer");
-    //var a=TextBox.value();
-    //console.log(this.state.sentence)
+   
     var obj = {
       //userID: this.sentence,
       UserText: this.state.sentence
@@ -88,7 +95,6 @@ class Login extends Component {
       [name]: value
     });
   };
-
   loadBooks = () => {
     API.getBooks()
       .then(res =>
@@ -121,7 +127,6 @@ class Login extends Component {
           signOut={() => this.signOut()}
           isSignedOut={this.state.isSignedIn}
         />
-
         {this.state.isSignedIn ? (
           // replace this with jsx for home page
           <span>
@@ -132,7 +137,6 @@ class Login extends Component {
         ) : (
             <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
           )}
-
           {this.state.isSignedIn ? (
           <span>
              <h1>{outMessage}</h1>
@@ -142,36 +146,31 @@ class Login extends Component {
             <h1 className="signout">{message}</h1>
         </span>
         )}
-
         <TextBox
           // onClick = {() => this.addText()}
           isSignedOut={this.state.isSignedIn}
           value={this.state.sentence}
           onChange={this.handleInputChange}
           name="sentence"
-
         />
-
         <Btn1
           isSignedOut={this.state.isSignedIn}
           onClick={this.yay}
         >
         </Btn1>
+        
+        <div>
+          {this.state.string}
+        </div>
+        {/* you have to put the divs here then add them on the book pages, and change the z index */}
       </div>
     )
-
   }
 }
 export default Login;
-
-
-
 //**********Saving Old Code Below************\\
-
-
 // import React from "react";
 // import "./style.css";
-
 // function Login(props) {
 //   return <div className="login">
 //   <div>
@@ -179,5 +178,4 @@ export default Login;
 //   </div>
 //   </div>;
 // }
-
 // export default Login;

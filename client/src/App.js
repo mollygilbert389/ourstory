@@ -42,7 +42,7 @@ class App extends Component {
     };
     console.log(obj);
     // console.log("posting");
-    axios.post(MONGODB_URI, obj).then((data) => console.log(data));
+    axios.post("http://localhost:3001/api/books", obj).then((data) => console.log(data));
   }
  
   //Eddy commit
