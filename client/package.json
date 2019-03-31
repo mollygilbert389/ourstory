@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "firebase": "^5.9.1",
+    "radium": "^0.25.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-firebaseui": "^3.1.2",
