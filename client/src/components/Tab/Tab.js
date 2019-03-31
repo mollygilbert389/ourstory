@@ -57,8 +57,8 @@ class Tab extends React.Component {
   }
   render() {
   return (
-    <div className="col-md-4" style={{}}>
-      <h1>Search a word</h1>
+    <div className="col-md-4">
+      <h1>Search for a definition</h1>
       <form>
           <Input
             value={this.state.searchTerm}
@@ -69,7 +69,7 @@ class Tab extends React.Component {
       <Button onClick={
                       this.searchWord
                       }>
-      Submit
+      Search
       </Button>
 
       <Definition words={this.state.definitions}></Definition>

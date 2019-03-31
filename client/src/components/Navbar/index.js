@@ -8,6 +8,7 @@ function Navbar(props) {
           <nav className ="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className = "navbar-brand" href="/">Our Story</a>
           <div className = "mr-auto">
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Share</a>
   
           </div>
           <h3 className="navbar-brand justify-content-center">

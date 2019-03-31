@@ -50,14 +50,14 @@ class App extends Component {
     return (
       <div>
           <Router>
-        <div className="row" style={{marginTop:200, paddingLeft: 15, position: "fixed", zIndex: 99}}>
+        <div className="row" style={{marginTop:150, paddingLeft: 15, position: "absolute", zIndex: 99}}>
               <Route exact path="/dictionary" component={Tab}/>
               <div className="col-sm-1">
-              <Link to="/dictionary" role="button" className="btn btn-link">
-              <i class="material-icons">check</i>
+              <Link to="/dictionary" role="button" className="btn btn-success">
+              <i class="material-icons">search</i>
               </Link>
-              <Link to="/" role="button" className="btn btn-link">
-              <i class="material-icons">cancel</i>
+              <Link to="/" role="button" className="btn btn-danger">
+              <i class="material-icons">cancel</i> 
               </Link>
               </div>
         </div>
@@ -68,11 +68,11 @@ class App extends Component {
 
             </Login>
           </div> : null
-
+          
         }
 
 
-
+        
         <TextBox
         
         />
@@ -98,7 +98,6 @@ class App extends Component {
 
         </Btn1>
 
-        
         {<Book >
 
         </Book>}
