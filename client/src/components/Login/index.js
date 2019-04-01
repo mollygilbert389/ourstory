@@ -52,7 +52,7 @@ class Login extends Component {
     this.getWords();
   }
   getWords = () => {
-    axios.get("http://localhost:3001/api/books")
+    axios.get("/api/books")
       .then((data1) => {
         var string1;
         var array = [];
@@ -83,11 +83,10 @@ class Login extends Component {
    
     var obj = {
       //userID: this.sentence,
-      UserText: this.state.sentence
+      UserText: "this.state.sentence"
     };
-    console.log(obj);
     // console.log("posting");
-    axios.post("http://localhost:3001/api/books", obj).then((data) => console.log(data));
+    axios.post("/api/books", obj).then((data) => console.log(data));
   }
   handleInputChange = event => {
     const { name, value } = event.target;

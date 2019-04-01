@@ -36,13 +36,14 @@ class App extends Component {
   }
  
   addText = () => {
-    var obj = {
-      userID: this.userID,
-      UserText: this.UserText
-    };
-    console.log(obj);
-    // console.log("posting");
-    axios.post("http://localhost:3001/api/books", obj).then((data) => console.log(data));
+    console.log("button was clicked")
+  //   var obj = {
+  //     userID: this.userID,
+  //     UserText: this.UserText
+  //   };
+  //   console.log(obj);
+  //   // console.log("posting");
+  //   axios.post("http://localhost:3001/api/books", obj).then((data) => console.log(data));
   }
  
   //Eddy commit
@@ -116,16 +117,6 @@ class App extends Component {
               </div>
         </div>
     </Router>
-        
-        <Btn1
-          // disabled={(this.state.sentence)}
-          // onClick={() => this.addText()}
-          onClick={this.handleFormSubmit}
-          disabled={!(this.state.showLogin)}
-        //          onClick={this.handleFormSubmit}
-        >
-
-        </Btn1>
 
 
 
