@@ -7,6 +7,8 @@ import { TextBox, Btn1 } from "../TextBox";
 import "./style.css";
 import axios from "axios";
 import API from "../../utils/API"
+
+
 // Configure Firebase.
 const authApiKey = `${process.env.REACT_APP_authApiKey}`;
 const message = "Welcome! Our goal is to write the longest collabrative story ever written. Please sign in to add your part."
@@ -16,6 +18,7 @@ const config = {
   authDomain: 'our-story-a8a0d.firebaseapp.com',
   // ...
 };
+
 firebase.initializeApp(config);
 class Login extends Component {
   // The component's Local state.
@@ -39,8 +42,9 @@ class Login extends Component {
       signInSuccessWithAuthResult: () => false
     }
   };
+  
   // Listen to the Firebase Auth state and set the local state.
-  componentDidMount() {
+componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({
         isSignedIn: !!user,
@@ -51,7 +55,8 @@ class Login extends Component {
     this.loadBooks();
     this.getWords();
   }
-  getWords = () => {
+
+getWords = () => {
     axios.get("/api/books")
       .then((data1) => {
         var string1;
@@ -67,11 +72,13 @@ class Login extends Component {
       }
       );
   }
-  signOut = () => {
+
+signOut = () => {
     firebase.auth().signOut();
     this.setState({ isSignedIn: false })
   }
-  loadBooks = () => {
+
+loadBooks = () => {
     API.getBooks()
       .then(res =>
         this.setState({ books: res.data, UserText: "" })
@@ -79,8 +86,8 @@ class Login extends Component {
       )
       .catch(err => console.log(err));
   };
-  yay = () => {
-   
+  
+yay = () => {
     var obj = {
       //userID: this.sentence,
       UserText: "this.state.sentence"
@@ -88,13 +95,15 @@ class Login extends Component {
     // console.log("posting");
     axios.post("/api/books", obj).then((data) => console.log(data));
   }
-  handleInputChange = event => {
+  
+handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-  loadBooks = () => {
+
+loadBooks = () => {
     API.getBooks()
       .then(res =>
         this.setState({ books: res.data, author: "" })
@@ -105,7 +114,8 @@ class Login extends Component {
       )
       .catch(err => console.log(err));
   };
-  handleFormSubmit = event => {
+  
+handleFormSubmit = event => {
     event.preventDefault();
     //if (this.state.sentence) {
     API.saveBook({
@@ -119,6 +129,7 @@ class Login extends Component {
     // .catch(err => console.log(err));
     // }
   };
+
   render() {
     return (
       <div>

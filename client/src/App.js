@@ -7,6 +7,9 @@ import axios from "axios";
 import { TextBox, Btn, Btn1 } from "./components/TextBox"
 import Tab from './components/Tab/Tab'
 import Radium from 'radium' 
+import Warning from './components/Warning'
+
+
 // import API from "./utils/API"
 
 const dicButtons = { 
@@ -75,8 +78,6 @@ class App extends Component {
           </div> : null
           
         }
-
-
         
         <TextBox
         
@@ -91,6 +92,8 @@ class App extends Component {
 
           </div> : null
         }
+
+        <Warning />
 
         <Router>
         <div className="row">
@@ -110,10 +113,12 @@ class App extends Component {
               </Link>
               </div>
               </div>
+              
               <div style={word}>
                 Dictionary
+                <Link to="/dictionary" role="button">
+                </Link>
               </div>
-             
               </div>
         </div>
     </Router>
