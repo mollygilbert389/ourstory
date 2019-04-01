@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
     "firebase": "^5.9.1",
     "radium": "^0.25.1",
     "react": "^16.8.4",
+    "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.4",
     "react-firebaseui": "^3.1.2",
     "react-router-dom": "^5.0.0",
