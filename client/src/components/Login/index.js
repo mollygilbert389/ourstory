@@ -30,7 +30,8 @@ class Login extends Component {
     books: [],
     users: [],
     text: "",
-
+    textLeft: "",
+    textRight: "",
     string: "",
     started: false
   };
@@ -66,6 +67,8 @@ class Login extends Component {
       .then((data1) => {
         var string1;
         var array = [];
+        var arrayLeft = [];
+        var arrayRight = [];
         data1.data.forEach(e => {
           array.push(e.UserText);
         })
@@ -74,6 +77,46 @@ class Login extends Component {
           string1 += e + " ";
         })
         this.setState({ text: string1 })
+        var size = array.length;
+        if (size < 50) {
+
+          if (size == 0) { }
+          else {
+            for (var x = 0; x < size; x++) {
+              arrayLeft.push(array[x]);
+              console.log(array[x]);
+              if (x == 25) {
+                for (x += 1; x < size; x++) {
+                  arrayRight.push(array[x]);
+                  console.log(array[x]);
+                  if (x == 50) { break; }
+                }
+                break;
+              }
+            }
+            var left="";
+            var right="";
+            arrayLeft.forEach(e => {
+              left += e + " ";
+            })
+            arrayRight.forEach(e => {
+              right += e + " ";
+            })
+            this.setState({ 
+              textLeft: left,
+              textRight:right
+
+            })
+
+          }
+        }
+        else {
+
+        }
+
+
+
+
       }
       );
   }
@@ -99,12 +142,12 @@ class Login extends Component {
     };
     // console.log("posting");
     axios.post("http://localhost:3001/api/books", obj)
-    .then((data) => console.log(data))
-    .then(
-      function () {
-        window.location.reload();
-      }
-    );
+      .then((data) => console.log(data))
+      .then(
+        function () {
+          window.location.reload();
+        }
+      );
   }
 
   handleInputChange = event => {
@@ -225,13 +268,16 @@ class Login extends Component {
 
 
 
-        <div id="left">
-          {this.state.text}
+        <div id="leftDiv">
+          {this.state.textLeft}
         </div>
 
-        <div id="right">
-          {this.state.text}
+        <div id="rightDiv">
+          {this.state.textRight}
         </div>
+
+        
+      
         {/* you have to put the divs here then add them on the book pages, and change the z index */}
       </div>
     )
