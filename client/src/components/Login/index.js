@@ -124,6 +124,9 @@ handleFormSubmit = event => {
     API.saveBook({
       UserText: this.state.sentence,
     })
+    
+    //trying to clear the textbox
+    document.getElementById(this.value).value = "";
     // .then(res => this.loadBooks()).then(
     //   function(){
     //     window.location.reload();

@@ -29,15 +29,16 @@ export function TextBox(props) {
 
 }
 
-export function Btn(props) {
-    return (
-        <button {...props} className="submit" id="btn1" style={{ display: props.isSignedOut ? 'block' : 'none' }}>
-            {props.children}
-            Submit
-        </button>
+// export function Btn(props) {
+//     return (
+//         <button {...props} className="submit" id="btn1" style={{ display: props.isSignedOut ? 'block' : 'none' }}>
+//             {props.children}
+//             Submit
+//         </button>
 
-    );
-}
+//     );
+// }
+
 export function Btn1(props) {
     return (
         <button {...props} id="btn1" style={{display: props.isSignedOut ? 'block' : 'none' }}>
