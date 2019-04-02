@@ -7,6 +7,8 @@ import { TextBox, Btn1 } from "../TextBox";
 import "./style.css";
 import axios from "axios";
 import API from "../../utils/API"
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 
 // Configure Firebase.
@@ -27,7 +29,8 @@ class Login extends Component {
     sentence: "",
     books: [],
     users: [],
-    string: ""
+    string: "",
+    started: false
   };
   // Configure FirebaseUI.
   uiConfig = {
@@ -90,7 +93,7 @@ loadBooks = () => {
 yay = () => {
     var obj = {
       //userID: this.sentence,
-      UserText: "this.state.sentence"
+      UserText: this.state.sentence
     };
     // console.log("posting");
     axios.post("/api/books", obj).then((data) => console.log(data));
@@ -130,6 +133,29 @@ handleFormSubmit = event => {
     // }
   };
 
+//////////////Modal Logic//////////////////////////////
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    // this.hideButton = this.hideButton.bind(this);
+    // this.showButton = this.showButton.bind(this);
+
+    this.state = {
+      show: false,
+    };
+  }
+
+  handleClose() {
+    this.setState({ show: false });
+    this.setState({started: true})
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
   render() {
     return (
       <div>
@@ -163,11 +189,33 @@ handleFormSubmit = event => {
           onChange={this.handleInputChange}
           name="sentence"
         />
+        
+        {this.state.isSignedIn ? (
+          <div>
+          <button className='startbtn' onClick={this.handleShow}>Start</button>
+          <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+          <Modal.Title>How to begin</Modal.Title>
+          </Modal.Header>
+              <Modal.Body>Once you click the close button in this box you will have 90 seconds to add your sentance. Please click submit once you are ready to add.</Modal.Body>
+              <Modal.Footer>
+           <Button className="closebtn" variant="danger" onClick={this.handleClose}>
+          Close
+          </Button>
+          </Modal.Footer>
+          </Modal>
+      </div>
+          ) : (
+          <div></div>
+          )}
+
         <Btn1
-          isSignedOut={this.state.isSignedIn}
+          isSignedOut={this.state.isSignedIn && this.state.started}
           onClick={this.yay}
         >
         </Btn1>
+
+
         
         <div>
           {this.state.string}

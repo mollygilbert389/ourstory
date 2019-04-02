@@ -7,7 +7,7 @@ import axios from "axios";
 import { TextBox, Btn, Btn1 } from "./components/TextBox"
 import Tab from './components/Tab/Tab'
 import Radium from 'radium' 
-import Warning from './components/Warning'
+// import Warning from './components/Warning'
 
 
 // import API from "./utils/API"
@@ -92,8 +92,6 @@ class App extends Component {
 
           </div> : null
         }
-
-        <Warning />
 
         <Router>
         <div className="row">
