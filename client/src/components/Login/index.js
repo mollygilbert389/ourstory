@@ -29,6 +29,8 @@ class Login extends Component {
     sentence: "",
     books: [],
     users: [],
+    text: "",
+
     string: "",
     started: false
   };
@@ -45,9 +47,9 @@ class Login extends Component {
       signInSuccessWithAuthResult: () => false
     }
   };
-  
+
   // Listen to the Firebase Auth state and set the local state.
-componentDidMount() {
+  componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({
         isSignedIn: !!user,
@@ -59,8 +61,8 @@ componentDidMount() {
     this.getWords();
   }
 
-getWords = () => {
-    axios.get("/api/books")
+  getWords = () => {
+    axios.get("http://localhost:3001/api/books")
       .then((data1) => {
         var string1;
         var array = [];
@@ -71,42 +73,48 @@ getWords = () => {
         array.forEach(e => {
           string1 += e + " ";
         })
-        this.setState({ string: string1 })
+        this.setState({ text: string1 })
       }
       );
   }
 
-signOut = () => {
+  signOut = () => {
     firebase.auth().signOut();
     this.setState({ isSignedIn: false })
   }
 
-loadBooks = () => {
+  loadBooks = () => {
     API.getBooks()
       .then(res =>
         this.setState({ books: res.data, UserText: "" })
-      
+
       )
       .catch(err => console.log(err));
   };
-  
-yay = () => {
+
+  yay = () => {
     var obj = {
       //userID: this.sentence,
       UserText: this.state.sentence
     };
     // console.log("posting");
-    axios.post("/api/books", obj).then((data) => console.log(data));
+    axios.post("http://localhost:3001/api/books", obj)
+    .then((data) => console.log(data))
+    .then(
+      function () {
+        window.location.reload();
+      }
+    );
   }
-  
-handleInputChange = event => {
+
+  handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      sentence: value
     });
   };
 
-loadBooks = () => {
+  loadBooks = () => {
     API.getBooks()
       .then(res =>
         this.setState({ books: res.data, author: "" })
@@ -117,8 +125,8 @@ loadBooks = () => {
       )
       .catch(err => console.log(err));
   };
-  
-handleFormSubmit = event => {
+
+  handleFormSubmit = event => {
     event.preventDefault();
     //if (this.state.sentence) {
     API.saveBook({
@@ -133,7 +141,7 @@ handleFormSubmit = event => {
     // }
   };
 
-//////////////Modal Logic//////////////////////////////
+  //////////////Modal Logic//////////////////////////////
   constructor(props, context) {
     super(props, context);
 
@@ -149,7 +157,7 @@ handleFormSubmit = event => {
 
   handleClose() {
     this.setState({ show: false });
-    this.setState({started: true})
+    this.setState({ started: true })
   }
 
   handleShow() {
@@ -173,15 +181,15 @@ handleFormSubmit = event => {
         ) : (
             <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
           )}
-          {this.state.isSignedIn ? (
+        {this.state.isSignedIn ? (
           <span>
-             <h1>{outMessage}</h1>
+            <h1>{outMessage}</h1>
           </span>
         ) : (
-          <span>
-            <h1 className="signout">{message}</h1>
-        </span>
-        )}
+            <span>
+              <h1 className="signout">{message}</h1>
+            </span>
+          )}
         <TextBox
           // onClick = {() => this.addText()}
           isSignedOut={this.state.isSignedIn}
@@ -189,24 +197,24 @@ handleFormSubmit = event => {
           onChange={this.handleInputChange}
           name="sentence"
         />
-        
+
         {this.state.isSignedIn ? (
           <div>
-          <button className='startbtn' onClick={this.handleShow}>Start</button>
-          <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-          <Modal.Title>How to begin</Modal.Title>
-          </Modal.Header>
+            <button className='startbtn' onClick={this.handleShow}>Start</button>
+            <Modal show={this.state.show} onHide={this.handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>How to begin</Modal.Title>
+              </Modal.Header>
               <Modal.Body>Once you click the close button in this box you will have 90 seconds to add your sentance. Please click submit once you are ready to add.</Modal.Body>
               <Modal.Footer>
-           <Button className="closebtn" variant="danger" onClick={this.handleClose}>
-          Close
+                <Button className="closebtn" variant="danger" onClick={this.handleClose}>
+                  Close
           </Button>
-          </Modal.Footer>
-          </Modal>
-      </div>
-          ) : (
-          <div></div>
+              </Modal.Footer>
+            </Modal>
+          </div>
+        ) : (
+            <div></div>
           )}
 
         <Btn1
@@ -216,9 +224,13 @@ handleFormSubmit = event => {
         </Btn1>
 
 
-        
-        <div>
-          {this.state.string}
+
+        <div id="left">
+          {this.state.text}
+        </div>
+
+        <div id="right">
+          {this.state.text}
         </div>
         {/* you have to put the divs here then add them on the book pages, and change the z index */}
       </div>

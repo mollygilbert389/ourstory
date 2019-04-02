@@ -20,14 +20,23 @@ import "./style.css";
 
 export function TextBox(props) {
     return (
-            <div className="stupid">
-                <textarea name="sentence" style={{display: props.isSignedOut ? 'block' : 'none' }}
-                    id="textarea" placeholder="Your Contribution ;-) (160 characters max)"
-                    required="true" maxlength="160" rows="5" className="form-control" />
-            </div>
+            // <div className="stupid">
+            //     <textarea name="sentence" style={{display: props.isSignedOut ? 'block' : 'none' }}
+            //         id="textarea" placeholder="Your Contribution ;-) (160 characters max)"
+            //         required="true" maxlength="160" rows="5" className="form-control" />
+            // </div>
+            
+
+            <div className="form-group">
+            <input name="sentence" maxlength="160" style={{ display: props.isSignedOut ? 'block' : 'none' }}
+            id="textarea" placeholder="Your Contribution ;-) (160 characters max)"
+            required="true" maxlength="160" rows="5" className="form-control" {...props} />
+        </div>
     );
 
 }
+
+
 
 export function Btn(props) {
     return (

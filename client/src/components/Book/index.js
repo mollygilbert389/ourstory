@@ -3,12 +3,12 @@ import "./style.css";
 
 function Book(props) {
   return <div className="book">
-    <div className="leftside">
+    {/* <div className="leftside">
     Left side div
   </div>
   <div className="rightside">
     Right side div
-  </div>
+  </div> */}
   </div>
 }
 
