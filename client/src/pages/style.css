@@ -1,0 +1,12 @@
+.team {
+    background-color: black;
+    height: 800px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    margin-top: 0;
+    border-radius: 8px;
+    align-self: auto;
+    margin:0 auto;
+}

@@ -85,7 +85,7 @@ class Login extends Component {
         name="sentence"
       />
         <Btn1
-          isSignedOut={this.state.isSignedIn}
+          isSignedOut={this.state.isSignedIn && this.state.started}
           onClick={this.yay} 
         />
     </React.Fragment>)
@@ -232,6 +232,9 @@ class Login extends Component {
     API.saveBook({
       UserText: this.state.sentence,
     })
+    
+    //trying to clear the textbox
+    document.getElementById(this.value).value = "";
     // .then(res => this.loadBooks()).then(
     //   function(){
     //     window.location.reload();
