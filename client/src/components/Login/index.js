@@ -130,23 +130,44 @@ class Login extends Component {
                 break;
               }
             }
-            var left="";
-            var right="";
+            var left = "";
+            var right = "";
             arrayLeft.forEach(e => {
               left += e + " ";
             })
             arrayRight.forEach(e => {
               right += e + " ";
             })
-            this.setState({ 
+            this.setState({
               textLeft: left,
-              textRight:right
+              textRight: right
 
             })
 
           }
         }
         else {
+          
+          for (x = 25; x >0; x--) {
+            arrayRight.push(array[size-x]);
+          }
+          for(x=50;x>25;x--){
+            arrayLeft.push(array[size-x]);
+
+          }
+          var left = "";
+          var right = "";
+          arrayLeft.forEach(e => {
+            left += e + " ";
+          })
+          arrayRight.forEach(e => {
+            right += e + " ";
+          })
+          this.setState({
+            textLeft: left,
+            textRight: right
+
+          })
 
         }
 
@@ -313,8 +334,8 @@ class Login extends Component {
           {this.state.textRight}
         </div>
 
-        
-      
+
+
         {/* you have to put the divs here then add them on the book pages, and change the z index */}
       </div>
     )
