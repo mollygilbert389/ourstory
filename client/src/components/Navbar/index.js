@@ -17,7 +17,7 @@ function Navbar(props) {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="/client/public/team.html">Meet the Team<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="https://mollygilbert389.github.io/team/.">Meet the Team<span class="sr-only">(current)</span></a>
               </li>
             </ul>
           </div>
