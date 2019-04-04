@@ -10,7 +10,7 @@ We encourage lot's of coffee and a creative mind before adding your one and only
 
 # Development Team
 
-* Eduardo (Eddy) Medina: https://www.linkedin.com/in/eduardo-medina/
+* Eduardo (Eddy) Medina: https://www.linkedin.com/in/eduardo-medina-69509375/
 
 * Molly Gilbert: https://www.linkedin.com/in/molly-s-gilbert-98642a57
 
