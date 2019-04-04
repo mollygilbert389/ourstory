@@ -29,6 +29,16 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  newUser: function(req, res) {
+    db.UserText
+      .findOne(req.body)
+      .then(dbModel => {
+        //if the user has userText in Mongo then isNew is false
+        var isNew = (dbModel) ? false : true;
+        res.json(isNew);
+      })
+      .catch(err => res.status(422).json(err));
+  },
   remove: function(req, res) {
     db.UserText
       .findById({ _id: req.params.id })
