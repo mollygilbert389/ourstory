@@ -2,7 +2,7 @@
 
 Welcome! This is Our Story. We aim to create the longest collaborative story ever written and want you to be apart of it. Each user gets one opportunity to add their sentence. Help us spread the word! 
 
-As part of our coding bootcamp we were challenged to create a full stack web application, utilizing the MERN stack. After multiple meetings we finally settled on this idea and we are proud to present this app and seek your collaboration. Follow the link provided below. 
+As part of our coding bootcamp we were challenged to create a full stack web application, utilizing the MERN stack. We settled on this idea and we are proud to present this collabrative app. Follow the link provided below. 
 
 We encourage lot's of coffee and a creative mind before adding your one and only sentence, so make it count! 
 
@@ -12,11 +12,11 @@ We encourage lot's of coffee and a creative mind before adding your one and only
 
 * Eduardo (Eddy) Medina: https://www.linkedin.com/in/eduardo-medina/
 
-* Molly Gilbert: https://www.linkedin.com/in/molly-s-gilbert/
+* Molly Gilbert: https://www.linkedin.com/in/molly-s-gilbert-98642a57
 
 * Shuler MeHaffey: https://www.linkedin.com/in/shulermehaffey/
 
-* Hank Marley: https://www.linkedin.com/in/hank-fox-marley/
+* Hank Marley: https://www.linkedin.com/in/hank-fox-marley-745646171/
 
 # MVP and Technologies Utilized
 
