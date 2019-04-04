@@ -85,7 +85,7 @@ class Login extends Component {
         name="sentence"
       />
         <Btn1
-          isSignedOut={this.state.isSignedIn}
+          isSignedOut={this.state.isSignedIn && this.state.started}
           onClick={this.yay} 
         />
     </React.Fragment>)
