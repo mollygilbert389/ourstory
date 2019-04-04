@@ -1,0 +1,36 @@
+body {
+    background-image: url('../src/components/assets/WhiteBackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+nav {
+
+}
+
+.team {
+    text-align: center;
+    position: relative;
+    margin-top: 0;
+    align-self: auto;
+    margin:0 auto;
+} 
+
+.member {
+    height: 300px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+footer {
+
+        position: fixed;
+        bottom: 0px;
+        margin-top: 10px;
+        background-color: rgb(11, 56, 2);
+        width: 100%;
+        color: white;
+        height: 20px;
+        font-size: 15px
+}

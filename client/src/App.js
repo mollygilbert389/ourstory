@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Book from "./components/Book";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
@@ -7,6 +7,7 @@ import axios from "axios";
 import { TextBox, Btn, Btn1 } from "./components/TextBox"
 import Tab from './components/Tab/Tab'
 import Radium from 'radium' 
+import Team from './pages/Team'
 // import Warning from './components/Warning'
 
 
@@ -103,24 +104,36 @@ class App extends Component {
               <Link to="/dictionary" role="button" className="btn btn-success">
               <i className="material-icons">search</i>
               </Link>
-              </div>
+            </div>
               
-              <div className="cancel">
+            <div className="cancel">
               <Link to="/" role="button" className="btn btn-danger">
               <i className="material-icons">cancel</i> 
               </Link>
               </div>
-              </div>
+            </div>
               
-              <div style={word}>
+            <div style={word}>
                 Dictionary
                 <Link to="/dictionary" role="button">
                 </Link>
-              </div>
-              </div>
+            </div>
+            </div> 
+            
         </div>
-    </Router>
+       
 
+    </Router>
+    
+
+  <Router>
+    <div>
+    <Switch>
+    <Route exact path="/team" component={Team} />
+    </Switch>
+    </div>
+  </Router>
+ 
 
 
         {<Book >

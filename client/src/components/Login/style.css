@@ -77,7 +77,9 @@ margin-bottom: 100px;
   border-color: rgb(11, 56, 2);
   display: flex;
   justify-content: center;
+  margin-bottom: 5px;
 }
+
 
 @media only screen and (max-width: 768px) {
   .heading {
