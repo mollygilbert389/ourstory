@@ -36,16 +36,6 @@ export function TextBox(props) {
 
 }
 
-<<<<<<< HEAD
-
-
-export function Btn(props) {
-    return (
-        <button {...props} className="submit" id="btn1" style={{ display: props.isSignedOut ? 'block' : 'none' }}>
-            {props.children}
-            Submit
-        </button>
-=======
 // export function Btn(props) {
 //     return (
 //         <button {...props} className="submit" id="btn1" style={{ display: props.isSignedOut ? 'block' : 'none' }}>
@@ -55,7 +45,6 @@ export function Btn(props) {
 
 //     );
 // }
->>>>>>> 7dc3c6b3418c9a537f9b33e696f7ab8001bae077
 
 export function Btn1(props) {
     return (
