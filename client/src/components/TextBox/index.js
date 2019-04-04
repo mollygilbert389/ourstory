@@ -30,7 +30,7 @@ export function TextBox(props) {
             <div className="form-group">
             <input name="sentence" maxlength="160" style={{ display: props.isSignedOut ? 'block' : 'none' }}
             id="textarea" placeholder="Your Contribution ;-) (160 characters max)"
-            required="true" maxlength="160" rows="5" className="form-control" {...props} />
+            required="true" maxlength="160" rows="5" className="form-control" onChange={props.textChange}{...props} />
         </div>
     );
 

@@ -18,6 +18,10 @@ const outMessage = ""
 const config = {
   apiKey: authApiKey,
   authDomain: 'our-story-a8a0d.firebaseapp.com',
+  databaseURL: "https://our-story-a8a0d.firebaseio.com",
+  projectId: "our-story-a8a0d",
+  storageBucket: "our-story-a8a0d.appspot.com",
+  messagingSenderId: "1000694079587"
   // ...
 };
 
@@ -26,6 +30,7 @@ class Login extends Component {
   // The component's Local state.
   state = {
     isSignedIn: false, // Local signed-in state.
+    isNewUser: true,
     sentence: "",
     books: [],
     users: [],
@@ -52,14 +57,45 @@ class Login extends Component {
   // Listen to the Firebase Auth state and set the local state.
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({
-        isSignedIn: !!user,
-        // userID: user.id
-      })
+      
       localStorage.setItem("userID", user.uid)
-    })
+
+      axios.post("http://localhost:3001/api/books/newUser", { userID: user.uid })
+        .then((results) => {
+          this.setState({
+            isSignedIn: !!user,
+            isNewUser: results.data
+          })
+        });
+    });
     this.loadBooks();
     this.getWords();
+  }
+
+  newUserOrNot = () => {
+    if (this.state.isNewUser) {
+      console.log("can add sentence")
+      return(
+    <React.Fragment> 
+      <TextBox
+        // onClick = {() => this.addText()}
+        isSignedOut={this.state.isSignedIn}
+        value={this.state.sentence}
+        textChange={this.handleInputChange}
+        name="sentence"
+      />
+        <Btn1
+          isSignedOut={this.state.isSignedIn}
+          onClick={this.yay} 
+        />
+    </React.Fragment>)
+    }
+    else {
+      console.log("can not add sentence")
+      return null
+
+    };
+    
   }
 
   getWords = () => {
@@ -158,7 +194,7 @@ class Login extends Component {
 
   yay = () => {
     var obj = {
-      //userID: this.sentence,
+      userID: localStorage.getItem("userID"),
       UserText: this.state.sentence
     };
     // console.log("posting");
@@ -254,13 +290,14 @@ class Login extends Component {
               <h1 className="signout">{message}</h1>
             </span>
           )}
-        <TextBox
+          {this.newUserOrNot()}
+        {/* <TextBox
           // onClick = {() => this.addText()}
           isSignedOut={this.state.isSignedIn}
           value={this.state.sentence}
           onChange={this.handleInputChange}
           name="sentence"
-        />
+        /> */}
 
         {this.state.isSignedIn ? (
           <div>
@@ -281,11 +318,11 @@ class Login extends Component {
             <div></div>
           )}
 
-        <Btn1
+        {/* <Btn1
           isSignedOut={this.state.isSignedIn && this.state.started}
           onClick={this.yay}
         >
-        </Btn1>
+        </Btn1> */}
 
 
 

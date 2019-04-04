@@ -5,7 +5,7 @@ const booksController = require("../../controllers/bookController");
 router.route("/")
   .get(booksController.findAll)
   .post(booksController.create);
-  
+
 router.post('/', booksController.create);
 // Matches with "/api/books/:id"
 router
@@ -13,5 +13,9 @@ router
   .get(booksController.findById)
   .put(booksController.update)
   .delete(booksController.remove);
+
+router
+  .route("/newUser")
+  .post(booksController.newUser)
 
 module.exports = router;
