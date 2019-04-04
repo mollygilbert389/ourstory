@@ -25,7 +25,10 @@ const config = {
   // ...
 };
 
+
 firebase.initializeApp(config);
+var database = firebase.database();
+var ref = firebase.database().ref();
 class Login extends Component {
   // The component's Local state.
   state = {
@@ -193,6 +196,14 @@ class Login extends Component {
   };
 
   yay = () => {
+
+    ref.on("value", function(snapshot) {
+      console.log(snapshot.val());
+   }, function (error) {
+      console.log("Error: " + error.code);
+   });
+
+
     var obj = {
       userID: localStorage.getItem("userID"),
       UserText: this.state.sentence
