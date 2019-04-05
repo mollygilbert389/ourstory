@@ -100,24 +100,14 @@ class App extends Component {
               <div className="col-sm-1">
              
              <div style={dicButtons}>
-              <div className="search">
-              <Link to="/dictionary" role="button" className="btn btn-success">
-              <i className="material-icons">search</i>
-              </Link>
             </div>
               
-            <div className="cancel">
-              <Link to="/" role="button" className="btn btn-danger">
-              <i className="material-icons">cancel</i> 
-              </Link>
-              </div>
-            </div>
-              
-            <div style={word}>
+            <Link to="/dictionary" role="button">
+              <div style={word}>
                 Dictionary
-                <Link to="/dictionary" role="button">
-                </Link>
-            </div>
+              </div>
+                
+              </Link>
             </div> 
             
         </div>
