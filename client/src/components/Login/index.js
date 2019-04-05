@@ -25,6 +25,7 @@ const config = {
   // ...
 };
 
+
 firebase.initializeApp(config);
 class Login extends Component {
   // The component's Local state.
@@ -194,6 +195,10 @@ class Login extends Component {
       .catch(err => console.log(err));
   };
 
+  tweet = () => {
+    axios.get("http://localhost:3001/api/books/tweeter")
+  }
+
   yay = () => {
     var obj = {
       userID: localStorage.getItem("userID"),
@@ -214,6 +219,7 @@ class Login extends Component {
           window.location.reload();
         }
       );
+    
   }
 
 /////////////////////////////////////////////////////// Timer Lockout call
@@ -363,7 +369,7 @@ class Login extends Component {
 
         {this.state.isSignedIn ? (
           <div>
-            <button className='startbtn' onClick={this.handleShow}>Start</button>
+            <button className='startbtn' onClick={this.handleShow && this.tweet}>Start</button>
             <Modal show={this.state.show} onHide={this.handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>How to begin</Modal.Title>

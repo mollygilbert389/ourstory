@@ -2,6 +2,7 @@ import React from "react";
 import { Input, Button, Definition } from "../Resources"
 import '../../App.css';
 import Radium from 'radium'
+import Cancel from '../Cancel/index'
 
 const axios = require('axios')
 
@@ -86,23 +87,24 @@ class Tab extends React.Component {
   render() {
   return (
     <div className="col-md-4" style={tabStyle}>
-      <h1>Search for a definition</h1>
-      <form>
-          <Input
-            value={this.state.searchTerm}
-            onChange={this.handleSearchChange}
-            />
-      </form>
 
-      <Button onClick={
-                      this.searchWord
-                      }>
-      Search
-      </Button>
-      <div style={defStyle}>
+    <Cancel></Cancel>
+
+    <h1>Search for a definition</h1>
+
+    <form>
+        <Input
+          value={this.state.searchTerm}
+          onChange={this.handleSearchChange}
+          />
+    </form>
+
+    <Button onClick={this.searchWord}>Search</Button>
+
+    <div style={defStyle}>
       <Definition words={this.state.definitions}></Definition>
-      </div>
-      </div>
+    </div> 
+  </div>
   );
 }
 }
