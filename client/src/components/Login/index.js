@@ -60,7 +60,7 @@ class Login extends Component {
   // Listen to the Firebase Auth state and set the local state.
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      
+
       localStorage.setItem("userID", user.uid)
 
       axios.post("http://localhost:3001/api/books/newUser", { userID: user.uid })
@@ -78,27 +78,27 @@ class Login extends Component {
   newUserOrNot = () => {
     if (this.state.isNewUser) {
       console.log("can add sentence")
-      return(
-    <React.Fragment> 
-      <TextBox
-        // onClick = {() => this.addText()}
-        isSignedOut={this.state.isSignedIn}
-        value={this.state.sentence}
-        textChange={this.handleInputChange}
-        name="sentence"
-      />
-        <Btn1
-          isSignedOut={this.state.isSignedIn && this.state.started}
-          onClick={this.yay} 
-        />
-    </React.Fragment>)
+      return (
+        <React.Fragment>
+          <TextBox
+            // onClick = {() => this.addText()}
+            isSignedOut={this.state.isSignedIn}
+            value={this.state.sentence}
+            textChange={this.handleInputChange}
+            name="sentence"
+          />
+          <Btn1
+            isSignedOut={this.state.isSignedIn && this.state.started}
+            onClick={this.yay}
+          />
+        </React.Fragment>)
     }
     else {
       console.log("can not add sentence")
       return null
 
     };
-    
+
   }
 
   getWords = () => {
@@ -150,12 +150,12 @@ class Login extends Component {
           }
         }
         else {
-          
-          for (x = 25; x >0; x--) {
-            arrayRight.push(array[size-x]);
+
+          for (x = 25; x > 0; x--) {
+            arrayRight.push(array[size - x]);
           }
-          for(x=50;x>25;x--){
-            arrayLeft.push(array[size-x]);
+          for (x = 50; x > 25; x--) {
+            arrayLeft.push(array[size - x]);
 
           }
           var left = "";
@@ -197,11 +197,11 @@ class Login extends Component {
 
   yay = () => {
 
-    ref.on("value", function(snapshot) {
+    ref.on("value", function (snapshot) {
       console.log(snapshot.val());
-   }, function (error) {
+    }, function (error) {
       console.log("Error: " + error.code);
-   });
+    });
 
 
     var obj = {
@@ -243,7 +243,7 @@ class Login extends Component {
     API.saveBook({
       UserText: this.state.sentence,
     })
-    
+
     //trying to clear the textbox
     document.getElementById(this.value).value = "";
     // .then(res => this.loadBooks()).then(
@@ -275,7 +275,35 @@ class Login extends Component {
   }
 
   handleShow() {
-    this.setState({ show: true });
+
+      var a =ref.once("value", function (snapshot) {
+        return (snapshot.val().Val);
+        
+      });
+    
+    console.log(a);
+   
+    if(a==false){
+    ref.set({
+      Val: true
+    })
+    }
+    else{
+
+    }
+   
+   
+
+
+    if (!a) {
+      this.setState({ show: true });
+      //set to true
+      //put 90 minutes
+    }
+    else {
+
+    }
+
   }
 
   render() {
@@ -304,7 +332,7 @@ class Login extends Component {
               <h1 className="signout">{message}</h1>
             </span>
           )}
-          {this.newUserOrNot()}
+        {this.newUserOrNot()}
         {/* <TextBox
           // onClick = {() => this.addText()}
           isSignedOut={this.state.isSignedIn}
