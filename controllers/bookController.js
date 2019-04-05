@@ -45,5 +45,17 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+
+  newTimer: function(req, res) {
+    db.UserTimer
+      .findOne(req.body)
+      .then(dbModel => {
+        //if the user has userText in Mongo then isNew is false
+        var timerStart = (dbModel) ? false : true;
+        res.json(timerStart);
+      })
+      .catch(err => res.status(422).json(err));
+    }
+  
 };
