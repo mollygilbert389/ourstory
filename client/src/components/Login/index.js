@@ -38,7 +38,8 @@ class Login extends Component {
     textLeft: "",
     textRight: "",
     string: "",
-    started: false
+    started: false,
+    theTimer: false
   };
   // Configure FirebaseUI.
   uiConfig = {
@@ -57,7 +58,7 @@ class Login extends Component {
   // Listen to the Firebase Auth state and set the local state.
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      
+
       localStorage.setItem("userID", user.uid)
 
       axios.post("http://localhost:3001/api/books/newUser", { userID: user.uid })
@@ -75,27 +76,27 @@ class Login extends Component {
   newUserOrNot = () => {
     if (this.state.isNewUser) {
       console.log("can add sentence")
-      return(
-    <React.Fragment> 
-      <TextBox
-        // onClick = {() => this.addText()}
-        isSignedOut={this.state.isSignedIn}
-        value={this.state.sentence}
-        textChange={this.handleInputChange}
-        name="sentence"
-      />
-        <Btn1
-          isSignedOut={this.state.isSignedIn && this.state.started}
-          onClick={this.yay} 
-        />
-    </React.Fragment>)
+      return (
+        <React.Fragment>
+          <TextBox
+            // onClick = {() => this.addText()}
+            isSignedOut={this.state.isSignedIn}
+            value={this.state.sentence}
+            textChange={this.handleInputChange}
+            name="sentence"
+          />
+          <Btn1
+            isSignedOut={this.state.isSignedIn && this.state.started}
+            onClick={this.yay}
+          />
+        </React.Fragment>)
     }
     else {
       console.log("can not add sentence")
       return null
 
     };
-    
+
   }
 
   getWords = () => {
@@ -147,12 +148,12 @@ class Login extends Component {
           }
         }
         else {
-          
-          for (x = 25; x >0; x--) {
-            arrayRight.push(array[size-x]);
+
+          for (x = 25; x > 0; x--) {
+            arrayRight.push(array[size - x]);
           }
-          for(x=50;x>25;x--){
-            arrayLeft.push(array[size-x]);
+          for (x = 50; x > 25; x--) {
+            arrayLeft.push(array[size - x]);
 
           }
           var left = "";
@@ -232,7 +233,7 @@ class Login extends Component {
     API.saveBook({
       UserText: this.state.sentence,
     })
-    
+
     //trying to clear the textbox
     document.getElementById(this.value).value = "";
     // .then(res => this.loadBooks()).then(
@@ -255,17 +256,32 @@ class Login extends Component {
 
     this.state = {
       show: false,
+      timer: false,
     };
   }
+
+
 
   handleClose() {
     this.setState({ show: false });
     this.setState({ started: true })
+    setTimeout(this.handleShow, 5000)
+    //checks boolean 
+    //
+    //on close btn checks to see if someone is actively writing
+    //checks boolean 
   }
 
   handleShow() {
-    this.setState({ show: true });
+    if (this.state.timer === false) {
+      this.setState({ show: true });
+      this.setState({ timer: true})
+    }
+    else{
+      window.location.reload()
+    }
   }
+
 
   render() {
     return (
@@ -293,7 +309,7 @@ class Login extends Component {
               <h1 className="signout">{message}</h1>
             </span>
           )}
-          {this.newUserOrNot()}
+        {this.newUserOrNot()}
         {/* <TextBox
           // onClick = {() => this.addText()}
           isSignedOut={this.state.isSignedIn}
