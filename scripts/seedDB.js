@@ -1,7 +1,6 @@
 
 const mongoose = require("mongoose");
 const db = require("../models");
-const timer = require("../models");
 
 // This file empties the Books collection and inserts the books below
 
@@ -25,9 +24,9 @@ db.UserText
     process.exit(1);
   });
 
-  db.timer
+  db.UserTimer
   .remove({})
-  .then(() => db.Book.collection.insertMany(timers))
+  .then(() => db.timetime.collection.insertMany(timers))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
