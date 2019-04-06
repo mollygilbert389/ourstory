@@ -19,7 +19,7 @@ function Navbar(props) {
               <li class="nav-item active">
                 <a class="nav-link" href="https://mollygilbert389.github.io/teamteam/index.html">Meet the Team<span class="sr-only">(current)</span></a>
               </li>
-              <li><button onClick={props.onClick} > Don't Click </button></li>
+              <li><button className="twitterBot" onClick={props.onClick} > Activate Twitter Bot </button></li>
             </ul>
           </div>
           <div className = "mr-auto">
