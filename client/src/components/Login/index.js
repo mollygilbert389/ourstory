@@ -40,8 +40,7 @@ class Login extends Component {
     textRight: "",
     string: "",
     started: false,
-    theTimer: false,
-    dbInUse: false
+    theTimer: false
   };
   // Configure FirebaseUI.
   uiConfig = {
@@ -206,13 +205,6 @@ class Login extends Component {
     };
     // console.log("posting");
     axios.post("http://localhost:3001/api/books", obj)
-    //query the db
-    //on "close" click quieres the db searcing for a boolean
-    //if none are found user can enter 
-    //the hard code a function that switches 
-    //arrary of users 
-    //finding the timestamp
-    //
       .then((data) => console.log(data))
       .then(
         function () {
@@ -221,36 +213,6 @@ class Login extends Component {
       );
     
   }
-
-/////////////////////////////////////////////////////// Timer Lockout call
-  // getTimeStarted = () => {
-  //   axios.get("http://localhost:3001/api/books")
-  //   .then((dataa) => {
-  //     tempUser = ""
-  //     closeClicked = false
-  //     tempUserTime = Date.now
-  //     newTime = tempUserTime.setSeconds(getSeconds() + 90)
-  //     if ( tempUser === "" && tempUserTime  === 0 && closeClicked === false) {
-  //       alert("90 seconds starting now!")
-
-  //     } else if (tempUser === "" && tempUserTime > newTime && closeClicked === false) {
-  //       alert("90 Seconds starting now!")
-  //     } else {
-  //       alert("Another user is currently adding a sentance. Please try again in 90 seconds.")
-  //       this.setState({dbInUse : true})
-  //     }
-  //   }
-  //     );
-  // }
-
-    //query the db
-    //on "close" click quieres the db searcing for a boolean
-    //if none are found user can enter 
-    //the hard code a function that switches 
-    //arrary of users 
-    //finding the timestamp
-    //
-
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -309,12 +271,7 @@ class Login extends Component {
   handleClose() {
     this.setState({ show: false });
     this.setState({ started: true })
-    setTimeout(this.handleShow, 90000)
-    // this.getTimeStarted()
-    // if (ddInUse === true) 
-    // { alert("Please try again in 90 seconds.")
-    // window.location.reload() 
-    // }
+    setTimeout(this.handleShow, 5000)
     //checks boolean 
     //
     //on close btn checks to see if someone is actively writing

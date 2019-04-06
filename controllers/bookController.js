@@ -56,20 +56,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-<<<<<<< HEAD
-
-  newTimer: function(req, res) {
-    db.UserTimer
-      .findOne(req.body)
-      .then(dbModel => {
-        //if the user has userText in Mongo then isNew is false
-        var timerStart = (dbModel) ? false : true;
-        res.json(timerStart);
-      })
-      .catch(err => res.status(422).json(err));
-    }
-  
-=======
   tweeter: function(req, res) {
     db.UserText.count(function(err, result) {
       var r = Math.floor(Math.random() * result);
@@ -86,6 +72,5 @@ module.exports = {
     });
     console.log(res)
   }
->>>>>>> eac6f76398f0e6522b6b4d4272d959e506f0b53c
 };
 
