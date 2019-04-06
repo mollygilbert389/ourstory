@@ -94,8 +94,9 @@ class Login extends Component {
     }
     else {
       console.log("can not add sentence")
-      return null
-
+      return ( null,
+      <div className="empty"></div>
+      )
     };
 
   }
@@ -273,7 +274,7 @@ class Login extends Component {
   handleClose() {
     this.setState({ show: false });
     this.setState({ started: true })
-    setTimeout(this.handleShow, 5000)
+    setTimeout(this.handleShow, 90000)
     //checks boolean 
     //
     //on close btn checks to see if someone is actively writing
