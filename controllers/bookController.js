@@ -1,13 +1,13 @@
 const db = require("../models");
-var Twit = require('twit')
-var T = new Twit({
-  consumer_key:         "d5E3eeuvqTcjRPtBUpgDdoKXp",
-  consumer_secret:      "WTpYpPH1CfZvqodz7KzTGlTVJSBIgf3LirnHmDZhSMyhGdw2f6",
-  access_token:          "1112155586106404864-hCxGfAMJw9J7eA66kfGCfVziqqFHpG",
-  access_token_secret:  "4mjba3f25rz6jS9mLhxtcA8ufyM9wnyB8OkyLFg3AtiBE",
-  timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
-  strictSSL:            true,     // optional - requires SSL certificates to be valid.
-})
+// var Twit = require('twit')
+// var T = new Twit({
+//   consumer_key:         "d5E3eeuvqTcjRPtBUpgDdoKXp",
+//   consumer_secret:      "WTpYpPH1CfZvqodz7KzTGlTVJSBIgf3LirnHmDZhSMyhGdw2f6",
+//   access_token:          "1112155586106404864-hCxGfAMJw9J7eA66kfGCfVziqqFHpG",
+//   access_token_secret:  "4mjba3f25rz6jS9mLhxtcA8ufyM9wnyB8OkyLFg3AtiBE",
+//   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
+//   strictSSL:            true,     // optional - requires SSL certificates to be valid.
+// })
 
 // Defining methods for the booksController
 module.exports = {
