@@ -8,6 +8,10 @@ const userTextSchema = new Schema({
   UserText: { type: String, required: true }
 });
 
+const timer = new Schema({
+  userTimer: { type: Boolean, required: true },
+});
+
 const UserText = mongoose.model("UserText", userTextSchema);
 
-module.exports = UserText;
+module.exports = UserText, timer;

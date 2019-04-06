@@ -22,8 +22,4 @@ router
   .route("/newUser")
   .post(booksController.newUser)
 
-router
-  .route("/newTimer")
-  .get(booksController.newTimer)
-
 module.exports = router;
