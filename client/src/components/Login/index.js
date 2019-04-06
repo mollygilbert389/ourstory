@@ -12,7 +12,7 @@ import Button from 'react-bootstrap/Button';
 
 
 // Configure Firebase.
-const authApiKey = `${process.env.REACT_APP_authApiKey}`;
+const authApiKey = "AIzaSyBJ9oii5VC84ZLRFDaii_aAsNV21NPA_Ak";
 const message = "Welcome! Our goal is to write the longest collabrative story ever written. Please sign in to add your part."
 const outMessage = ""
 const config = {
@@ -194,10 +194,12 @@ class Login extends Component {
       .catch(err => console.log(err));
   };
 
-  tweet = () => {
-    axios.get("http://localhost:3001/api/books/tweeter")
-  }
-
+  // tweet = () => {
+  //   axios.get("http://localhost:3001/api/books/tweeter")
+  //   .then(function(err, res) {
+  //     console.log(res)
+  //   })
+  // }
   yay = () => {
     var obj = {
       userID: localStorage.getItem("userID"),
@@ -326,7 +328,7 @@ class Login extends Component {
 
         {this.state.isSignedIn ? (
           <div>
-            <button className='startbtn' onClick={this.handleShow && this.tweet}>Start</button>
+            <button className='startbtn' onClick={this.handleShow}>Start</button>
             <Modal show={this.state.show} onHide={this.handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>How to begin</Modal.Title>
