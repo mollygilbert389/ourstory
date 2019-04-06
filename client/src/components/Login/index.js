@@ -100,6 +100,11 @@ class Login extends Component {
 
   }
 
+  tweet = () => {
+    axios.get("http://localhost:3001/api/books/tweeter")
+  }
+
+
   getWords = () => {
     axios.get("http://localhost:3001/api/books")
       .then((data1) => {
@@ -297,6 +302,7 @@ class Login extends Component {
         <Navbar
           signOut={() => this.signOut()}
           isSignedOut={this.state.isSignedIn}
+          onClick={this.tweet}
         />
         {this.state.isSignedIn ? (
           // replace this with jsx for home page
@@ -311,10 +317,12 @@ class Login extends Component {
         {this.state.isSignedIn ? (
           <span>
             <h1>{outMessage}</h1>
+            
           </span>
         ) : (
             <span>
               <h1 className="signout">{message}</h1>
+            
             </span>
           )}
         {this.newUserOrNot()}
