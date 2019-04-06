@@ -65,6 +65,10 @@
   margin-bottom: 5px;
 }
 
+.empty {
+  height: 100px;
+  width: 30px
+}
 
 @media only screen and (max-width: 768px) {
   .heading {
