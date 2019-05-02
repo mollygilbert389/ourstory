@@ -16,7 +16,7 @@ const authApiKey = "AIzaSyBJ9oii5VC84ZLRFDaii_aAsNV21NPA_Ak";
 const message = "Welcome! Our goal is to write the longest collabrative story ever written. Please sign in to add your part."
 const outMessage = ""
 const config = {
-  apiKey: authApiKey,
+  apiKey: "AIzaSyBJ9oii5VC84ZLRFDaii_aAsNV21NPA_Ak",
   authDomain: 'our-story-a8a0d.firebaseapp.com',
   databaseURL: "https://our-story-a8a0d.firebaseio.com",
   projectId: "our-story-a8a0d",
@@ -61,6 +61,7 @@ class Login extends Component {
     firebase.auth().onAuthStateChanged(user => {
 
       localStorage.setItem("userID", user.uid)
+      console.log(user.uid)
 
       axios.post("http://localhost:3001/api/books/newUser", { userID: user.uid })
         .then((results) => {
