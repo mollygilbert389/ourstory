@@ -63,7 +63,7 @@ class Login extends Component {
       localStorage.setItem("userID", user.uid)
       console.log(user.uid)
 
-      axios.post("http://localhost:3001/api/books/newUser", { userID: user.uid })
+      axios.post("/api/books/newUser", { userID: user.uid })
         .then((results) => {
           this.setState({
             isSignedIn: !!user,
@@ -103,12 +103,12 @@ class Login extends Component {
   }
 
   tweet = () => {
-    axios.get("http://localhost:3001/api/books/tweeter")
+    axios.get("/api/books/tweeter")
   }
 
 
   getWords = () => {
-    axios.get("http://localhost:3001/api/books")
+    axios.get("/api/books")
       .then((data1) => {
         var string1;
         var array = [];
@@ -213,7 +213,7 @@ class Login extends Component {
       UserText: this.state.sentence
     };
     // console.log("posting");
-    axios.post("http://localhost:3001/api/books", obj)
+    axios.post("/api/books", obj)
       .then((data) => console.log(data))
       .then(
         function () {
