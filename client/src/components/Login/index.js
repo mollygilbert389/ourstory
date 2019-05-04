@@ -41,7 +41,6 @@ class Login extends Component {
     string: "",
     started: false,
     theTimer: false,
-    activeUser: null
   };
   // Configure FirebaseUI.
   uiConfig = {
@@ -249,17 +248,20 @@ class Login extends Component {
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    // this.setActiveUser = this.setActiveUser.bind(this)
+    // this.alertme = this.alertme.bind(this)
 
     this.state = {
       show: false,
       timer: false,
+      activeUser: "",
     };
   }
 
-  
+
 
   handleClose() {
-    if (this.state.activeUser == null) {
+    if (this.state.activeUser === "") {
     this.setState({ show: false });
     this.setState({ started: true })
     this.setActiveUser()
@@ -270,12 +272,16 @@ class Login extends Component {
 
   alertme = () => {
     alert("timer started")
-    setTimeout(this.handleShow, 9000)
+    setTimeout(this.handleShow, 90000)
+    console.log(this.state.activeUser)
     alert(this.state.activeUser)
   }
 
   setActiveUser = () => {
-    this.setState({activeUser: localStorage.getItem("userID")})
+    var aUser = firebase.auth().currentUser.b.b
+    if (aUser !== "") {
+    this.state.activeUser = firebase.auth().currentUser.b.b
+    }
     this.alertme() 
   }
  
@@ -285,7 +291,7 @@ class Login extends Component {
       this.setState({ timer: true})
     }
     else{
-      this.setState({activeUser: null})
+      this.setState({activeUser: ""})
       alert(this.state.activeUser)
       window.location.reload()
 
