@@ -254,14 +254,14 @@ class Login extends Component {
     this.state = {
       show: false,
       timer: false,
-      activeUser: "",
+      activeUser: "asofhoasfhof",
     };
   }
 
 
 
   handleClose() {
-    if (this.state.activeUser === "") {
+    if (this.state.activeUser) {
     this.setState({ show: false });
     this.setState({ started: true })
     this.setActiveUser()
@@ -278,10 +278,7 @@ class Login extends Component {
   }
 
   setActiveUser = () => {
-    var aUser = firebase.auth().currentUser.b.b
-    if (aUser !== "") {
     this.state.activeUser = firebase.auth().currentUser.b.b
-    }
     this.alertme() 
   }
  
