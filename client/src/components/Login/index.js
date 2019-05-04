@@ -257,6 +257,7 @@ class Login extends Component {
 
 
 
+
   handleClose() {
     this.setState({ show: false });
     this.setState({ started: true })
@@ -268,7 +269,7 @@ class Login extends Component {
       this.setState({ show: true });
       this.setState({ timer: true})
     }
-    else{
+    else {
       window.location.reload()
     }
   }
