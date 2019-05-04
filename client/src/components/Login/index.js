@@ -12,16 +12,16 @@ import Button from 'react-bootstrap/Button';
 
 
 // Configure Firebase.
-const authApiKey = "AIzaSyBJ9oii5VC84ZLRFDaii_aAsNV21NPA_Ak";
+const authApiKey = `${process.env.REACT_APP_authApiKey}`;
 const message = "Welcome! Our goal is to write the longest collabrative story ever written. Please sign in to add your part."
 const outMessage = ""
 const config = {
-  apiKey: "AIzaSyBJ9oii5VC84ZLRFDaii_aAsNV21NPA_Ak",
-  authDomain: 'our-story-a8a0d.firebaseapp.com',
-  databaseURL: "https://our-story-a8a0d.firebaseio.com",
-  projectId: "our-story-a8a0d",
-  storageBucket: "our-story-a8a0d.appspot.com",
-  messagingSenderId: "1000694079587"
+  apiKey: authApiKey,
+  authDomain: 'meshbro-d74e6.firebaseapp.com',
+  // databaseURL: "https://our-story-a8a0d.firebaseio.com",
+  // projectId: "our-story-a8a0d",
+  // storageBucket: "our-story-a8a0d.appspot.com",
+  // messagingSenderId: "1000694079587"
   // ...
 };
 
