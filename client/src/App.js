@@ -10,6 +10,7 @@ import Radium from 'radium'
 import Team from './pages/Team'
 // import Warning from './components/Warning'
 
+console.log(process.env.REACT_APP_API_KEY)
 
 // import API from "./utils/API"
 
