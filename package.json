@@ -22,6 +22,7 @@
     "url": "https://github.com/mollygilbert389/ourstory/issues"
   },
   "homepage": "https://github.com/mollygilbert389/ourstory#readme",
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",

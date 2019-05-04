@@ -81,7 +81,6 @@ class Login extends Component {
       return (
         <React.Fragment>
           <TextBox
-            // onClick = {() => this.addText()}
             isSignedOut={this.state.isSignedIn}
             value={this.state.sentence}
             textChange={this.handleInputChange}
@@ -180,9 +179,6 @@ class Login extends Component {
 
         }
 
-
-
-
       }
       );
   }
@@ -207,12 +203,12 @@ class Login extends Component {
   //     console.log(res)
   //   })
   // }
+
   yay = () => {
     var obj = {
       userID: localStorage.getItem("userID"),
       UserText: this.state.sentence
     };
-    // console.log("posting");
     axios.post("/api/books", obj)
       .then((data) => console.log(data))
       .then(
@@ -234,30 +230,16 @@ class Login extends Component {
     API.getBooks()
       .then(res =>
         this.setState({ books: res.data, author: "" })
-        // res.data.forEach(element => {
-        //   console.log(element.author);
-        // });
-        // console.log(res);
       )
       .catch(err => console.log(err));
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    //if (this.state.sentence) {
     API.saveBook({
       UserText: this.state.sentence,
     })
-
-    //trying to clear the textbox
     document.getElementById(this.value).value = "";
-    // .then(res => this.loadBooks()).then(
-    //   function(){
-    //     window.location.reload();
-    //   }
-    //   )
-    // .catch(err => console.log(err));
-    // }
   };
 
   //////////////Modal Logic//////////////////////////////
@@ -266,8 +248,6 @@ class Login extends Component {
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    // this.hideButton = this.hideButton.bind(this);
-    // this.showButton = this.showButton.bind(this);
 
     this.state = {
       show: false,
@@ -281,10 +261,6 @@ class Login extends Component {
     this.setState({ show: false });
     this.setState({ started: true })
     setTimeout(this.handleShow, 90000)
-    //checks boolean 
-    //
-    //on close btn checks to see if someone is actively writing
-    //checks boolean 
   }
 
   handleShow() {
@@ -309,8 +285,6 @@ class Login extends Component {
         {this.state.isSignedIn ? (
           // replace this with jsx for home page
           <span>
-            {/* <div>Signed In!</div>
-            <button onClick={() => this.signOut()}>Sign Out!</button> */}
             <h1 className="heading">Welcome {firebase.auth().currentUser.displayName}.</h1>
           </span>
         ) : (
@@ -355,14 +329,6 @@ class Login extends Component {
             <div></div>
           )}
 
-        {/* <Btn1
-          isSignedOut={this.state.isSignedIn && this.state.started}
-          onClick={this.yay}
-        >
-        </Btn1> */}
-
-
-
         <div id="leftDiv">
           {this.state.textLeft}
         </div>
@@ -370,23 +336,8 @@ class Login extends Component {
         <div id="rightDiv">
           {this.state.textRight}
         </div>
-
-
-
-        {/* you have to put the divs here then add them on the book pages, and change the z index */}
       </div>
     )
   }
 }
 export default Login;
-//**********Saving Old Code Below************\\
-// import React from "react";
-// import "./style.css";
-// function Login(props) {
-//   return <div className="login">
-//   <div>
-//     This is where you login
-//   </div>
-//   </div>;
-// }
-// export default Login;
