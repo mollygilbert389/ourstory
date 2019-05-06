@@ -204,10 +204,11 @@ class Login extends Component {
   //   })
   // }
 
-  checkActive = () => {
-    axios.get("/api/books/activeornah")
+  resetActiveUser = () => {
+    axios.get("/api/books/reset")
     .then((result) => {
-      console.log(result)
+      console.log(result.data)
+      window.location.reload()
     })
   }
  
@@ -268,13 +269,8 @@ class Login extends Component {
 
 
   handleClose() {
-    if (this.state.activeUser) {
     this.setState({ show: false });
-    this.setState({ started: true })
-    this.setActiveUser()
-    } else {
-      alert("I'm sorry, someone is editing")
-    }
+    setTimeout(this.resetActiveUser, 10000)
   }
 
   alertme = () => {
@@ -282,22 +278,18 @@ class Login extends Component {
     console.log(this.state.activeUser)
   }
 
-  setActiveUser = () => {
-    this.state.activeUser = firebase.auth().currentUser.b.b
-    this.alertme() 
-  }
  
   handleShow() {
-    if (this.state.timer === false) {
-      this.setState({ show: true });
-      this.setState({ timer: true})
-    }
-    else{
-      this.setState({activeUser: ""})
-      alert(this.state.activeUser)
-      window.location.reload()
-
-    }
+    axios.get("/api/books/activeornah")
+    .then((result) => {
+      console.log(result.data)
+      if (result.data === true) {
+        alert("I'm sorry, someone else is editing")
+      } else {
+        this.setState({ show: true });
+      }
+    })
+      // window.location.reload()
   }
 
 
