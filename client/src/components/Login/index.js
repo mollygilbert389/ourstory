@@ -247,6 +247,7 @@ class Login extends Component {
     API.saveBook({
       UserText: this.state.sentence,
     })
+    this.resetActiveUser()
     document.getElementById(this.value).value = "";
   };
 
@@ -271,6 +272,7 @@ class Login extends Component {
 
   handleClose() {
     this.setState({ show: false });
+    this.setState({started: true})
     setTimeout(this.resetActiveUser, 90000)
   }
 
