@@ -270,7 +270,7 @@ class Login extends Component {
 
   handleClose() {
     this.setState({ show: false });
-    setTimeout(this.resetActiveUser, 10000)
+    setTimeout(this.resetActiveUser, 90000)
   }
 
   alertme = () => {
