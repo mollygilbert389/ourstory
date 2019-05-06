@@ -71,6 +71,26 @@ module.exports = {
         }
       })
     })
+  },
+  checkActive: function(req, res) {
+    console.log(db.Queue)
+    db.Queue
+    .findById({ _id: "5cd068e55754ee11a4b44c23" })
+      .then((dbModel) => {
+        if (dbModel.active === false) {
+          db.Queue.findByIdAndUpdate("5cd068e55754ee11a4b44c23", {"active": true})
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(422).json(err));
+        } else {
+          res.json(dbModel.active)
+        }
+      })
+      .catch(err => res.status(422).json(err));
+  },
+  reset: function(req, res) {
+    db.Queue.findByIdAndUpdate("5cd068e55754ee11a4b44c23", {"active": false})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
   }
 };
 

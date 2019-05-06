@@ -8,6 +8,7 @@ import { TextBox, Btn, Btn1 } from "./components/TextBox"
 import Tab from './components/Tab/Tab'
 import Radium from 'radium' 
 
+console.log(process.env.REACT_APP_API_KEY)
 
 // import API from "./utils/API"
 

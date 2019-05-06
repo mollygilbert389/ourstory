@@ -12,16 +12,16 @@ import Button from 'react-bootstrap/Button';
 
 
 // Configure Firebase.
-const authApiKey = "AIzaSyBJ9oii5VC84ZLRFDaii_aAsNV21NPA_Ak";
+const authApiKey = `${process.env.REACT_APP_authApiKey}`;
 const message = "Welcome! Our goal is to write the longest collabrative story ever written. Please sign in to add your part."
 const outMessage = ""
 const config = {
-  apiKey: "AIzaSyBJ9oii5VC84ZLRFDaii_aAsNV21NPA_Ak",
-  authDomain: 'our-story-a8a0d.firebaseapp.com',
-  databaseURL: "https://our-story-a8a0d.firebaseio.com",
-  projectId: "our-story-a8a0d",
-  storageBucket: "our-story-a8a0d.appspot.com",
-  messagingSenderId: "1000694079587"
+  apiKey: authApiKey,
+  authDomain: 'meshbro-d74e6.firebaseapp.com',
+  // databaseURL: "https://our-story-a8a0d.firebaseio.com",
+  // projectId: "our-story-a8a0d",
+  // storageBucket: "our-story-a8a0d.appspot.com",
+  // messagingSenderId: "1000694079587"
   // ...
 };
 
@@ -204,6 +204,14 @@ class Login extends Component {
   //   })
   // }
 
+  resetActiveUser = () => {
+    axios.get("/api/books/reset")
+    .then((result) => {
+      console.log(result.data)
+      window.location.reload()
+    })
+  }
+ 
   yay = () => {
     var obj = {
       userID: localStorage.getItem("userID"),
@@ -254,7 +262,7 @@ class Login extends Component {
     this.state = {
       show: false,
       timer: false,
-      activeUser: "",
+      activeUser: "asofhoasfhof",
     };
   }
 
@@ -262,43 +270,27 @@ class Login extends Component {
 
 
   handleClose() {
-    if (this.state.activeUser === "") {
     this.setState({ show: false });
-    this.setState({ started: true })
-    this.setActiveUser()
-    } else {
-      alert("I'm sorry, someone is editing")
-    }
+    setTimeout(this.resetActiveUser, 90000)
   }
 
   alertme = () => {
-    alert("timer started")
     setTimeout(this.handleShow, 90000)
     console.log(this.state.activeUser)
-    alert(this.state.activeUser)
   }
 
-  setActiveUser = () => {
-    var aUser = firebase.auth().currentUser.b.b
-
-    // if (aUser !== "") {
-    //   alert("I'm sorry, someone is editing")
-    // } else {
-    //   this.state.activeUser = firebase.auth().currentUser.b.b
-    // }
-  }
  
   handleShow() {
-    if (this.state.timer === false) {
-      this.setState({ show: true });
-      this.setState({ timer: true})
-    }
-    else{
-      this.setState({activeUser: ""})
-      alert(this.state.activeUser)
-      window.location.reload()
-
-    }
+    axios.get("/api/books/activeornah")
+    .then((result) => {
+      console.log(result.data)
+      if (result.data === true) {
+        alert("I'm sorry, someone else is editing")
+      } else {
+        this.setState({ show: true });
+      }
+    })
+      // window.location.reload()
   }
 
 

@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose");
 const db = require("../models");
 const timer = require("../models");
@@ -36,4 +35,5 @@ db.UserText
     console.error(err);
     process.exit(1);
   });
+
   

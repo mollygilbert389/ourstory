@@ -8,6 +8,12 @@ router.route("/")
 
 router.route("/tweeter")
   .get(booksController.tweeter)
+
+router.route("/activeornah")
+  .get(booksController.checkActive)
+
+router.route("/reset")
+  .get(booksController.reset)
   
 
 router.post('/', booksController.create);
