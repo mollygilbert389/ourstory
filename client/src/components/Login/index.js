@@ -40,7 +40,7 @@ class Login extends Component {
     textRight: "",
     string: "",
     started: false,
-    theTimer: false
+    theTimer: false,
   };
   // Configure FirebaseUI.
   uiConfig = {
@@ -248,10 +248,13 @@ class Login extends Component {
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    // this.setActiveUser = this.setActiveUser.bind(this)
+    // this.alertme = this.alertme.bind(this)
 
     this.state = {
       show: false,
       timer: false,
+      activeUser: "",
     };
   }
 
@@ -259,18 +262,42 @@ class Login extends Component {
 
 
   handleClose() {
+    if (this.state.activeUser === "") {
     this.setState({ show: false });
     this.setState({ started: true })
-    setTimeout(this.handleShow, 90000)
+    this.setActiveUser()
+    } else {
+      alert("I'm sorry, someone is editing")
+    }
   }
 
+  alertme = () => {
+    alert("timer started")
+    setTimeout(this.handleShow, 90000)
+    console.log(this.state.activeUser)
+    alert(this.state.activeUser)
+  }
+
+  setActiveUser = () => {
+    var aUser = firebase.auth().currentUser.b.b
+
+    // if (aUser !== "") {
+    //   alert("I'm sorry, someone is editing")
+    // } else {
+    //   this.state.activeUser = firebase.auth().currentUser.b.b
+    // }
+  }
+ 
   handleShow() {
     if (this.state.timer === false) {
       this.setState({ show: true });
       this.setState({ timer: true})
     }
-    else {
+    else{
+      this.setState({activeUser: ""})
+      alert(this.state.activeUser)
       window.location.reload()
+
     }
   }
 
