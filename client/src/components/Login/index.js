@@ -18,11 +18,10 @@ const outMessage = ""
 const config = {
   apiKey: authApiKey,
   authDomain: 'meshbro-d74e6.firebaseapp.com',
-  // databaseURL: "https://our-story-a8a0d.firebaseio.com",
-  // projectId: "our-story-a8a0d",
-  // storageBucket: "our-story-a8a0d.appspot.com",
-  // messagingSenderId: "1000694079587"
-  // ...
+  databaseURL: "https://our-story-a8a0d.firebaseio.com",
+  projectId: "our-story-a8a0d",
+  storageBucket: "our-story-a8a0d.appspot.com",
+  messagingSenderId: "1000694079587"
 };
 
 
