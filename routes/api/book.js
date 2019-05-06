@@ -14,6 +14,9 @@ router.route("/activeornah")
 
 router.route("/reset")
   .get(booksController.reset)
+
+router.route("/createcollection")
+  .get(booksController.createcollection)
   
 
 router.post('/', booksController.create);

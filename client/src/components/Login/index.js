@@ -226,6 +226,13 @@ class Login extends Component {
     
   }
 
+  createIT = () => {
+    axios.get("/api/books/createcollection")
+    .then((result) => {
+      console.log(result)
+    })
+  }
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -332,6 +339,7 @@ class Login extends Component {
         {this.state.isSignedIn ? (
           <div>
             <button className='startbtn' onClick={this.handleShow}>Start</button>
+            <button onClick={this.createIT}>Create IT</button>
             <Modal show={this.state.show} onHide={this.handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>How to begin</Modal.Title>
