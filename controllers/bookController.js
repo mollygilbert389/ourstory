@@ -91,6 +91,13 @@ module.exports = {
     db.Queue.findByIdAndUpdate("5cd068e55754ee11a4b44c23", {"active": false})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
+  },
+  createcollection: function(req, res) {
+    console.log("made it here: "+ JSON.stringify(req.body))
+    db.Queue
+      .create({"active": false})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };
 
