@@ -71,6 +71,13 @@ module.exports = {
         }
       })
     })
+  },
+  checkActive: function(req, res) {
+    console.log(db.queue)
+    db.Queue
+    .find(req.query)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };
 

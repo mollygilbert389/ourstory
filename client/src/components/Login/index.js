@@ -204,6 +204,13 @@ class Login extends Component {
   //   })
   // }
 
+  checkActive = () => {
+    axios.get("/api/books/activeornah")
+    .then((result) => {
+      console.log(result)
+    })
+  }
+ 
   yay = () => {
     var obj = {
       userID: localStorage.getItem("userID"),
@@ -271,10 +278,8 @@ class Login extends Component {
   }
 
   alertme = () => {
-    alert("timer started")
     setTimeout(this.handleShow, 90000)
     console.log(this.state.activeUser)
-    alert(this.state.activeUser)
   }
 
   setActiveUser = () => {

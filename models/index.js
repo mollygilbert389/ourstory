@@ -1,3 +1,4 @@
 module.exports = {
-  UserText: require("./userText")
+  UserText: require("./userText"),
+  Queue: require("./queue")
 };
