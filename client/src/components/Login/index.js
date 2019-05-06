@@ -16,12 +16,13 @@ const authApiKey = `${process.env.REACT_APP_authApiKey}`;
 const message = "Welcome! Our goal is to write the longest collabrative story ever written. Please sign in to add your part."
 const outMessage = ""
 const config = {
-  apiKey: authApiKey,
-  authDomain: 'meshbro-d74e6.firebaseapp.com',
-  databaseURL: "https://our-story-a8a0d.firebaseio.com",
-  projectId: "our-story-a8a0d",
-  storageBucket: "our-story-a8a0d.appspot.com",
-  messagingSenderId: "1000694079587"
+    apiKey: authApiKey,
+    authDomain: "meshbro-d74e6.firebaseapp.com",
+    databaseURL: "https://meshbro-d74e6.firebaseio.com",
+    projectId: "meshbro-d74e6",
+    storageBucket: "meshbro-d74e6.appspot.com",
+    messagingSenderId: "649310043102",
+    appId: "1:649310043102:web:f728e767771b774b"
 };
 
 
@@ -226,13 +227,6 @@ class Login extends Component {
     
   }
 
-  createIT = () => {
-    axios.get("/api/books/createcollection")
-    .then((result) => {
-      console.log(result)
-    })
-  }
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -339,7 +333,6 @@ class Login extends Component {
         {this.state.isSignedIn ? (
           <div>
             <button className='startbtn' onClick={this.handleShow}>Start</button>
-            <button onClick={this.createIT}>Create IT</button>
             <Modal show={this.state.show} onHide={this.handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>How to begin</Modal.Title>
