@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Book from "./components/Book";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
-// import axios from "axios";
-import { TextBox, Btn, Btn1 } from "./components/TextBox"
 import Tab from './components/Tab/Tab'
 import Radium from 'radium' 
 
@@ -47,16 +45,16 @@ class App extends Component {
   render() {
     return (
       <Router>
+
+        {/* START LOGIN */}
         <div id="container">
           {this.state.showTextBox ?
-          <div id="showLogin2">
+            <div id="showLogin2">
 
-            <Login>
-            </Login>
+              <Login>
+              </Login>
 
-          </div> : null}
-
-          <TextBox/>
+            </div> : null}
 
           {this.state.showLogin ?
             <div id="showLogin2">
@@ -64,30 +62,36 @@ class App extends Component {
               </Login>
             </div> : null
           }
+          {/* THIS IS END LOGIN */}
 
-          <Router>
-            <div className="row">
-              <Route exact path="/dictionary" component={Tab} />
-              <div className="col-sm-1">
+          {/* START DICTIONARY LOGIC*/}
+          <div className="row">
+            <Route exact path="/dictionary" component={Tab} />
+            <div className="col-sm-1">
 
-                <div style={dicButtons}>
-                </div>
-
-                <Link to="/dictionary" role="button">
-                  <div style={word}>
-                    Dictionary
-                  </div>
-                  
-                </Link>
+              <div style={dicButtons}>
               </div>
-            </div>
-          </Router>
 
+              <Link to="/dictionary" role="button">
+                <div style={word}>
+                  Dictionary
+                  </div>
+
+              </Link>
+            </div>
+          </div>
+          {/* START DICTIONARY LOGIC*/}
+
+          {/* START BOOK LOGIC*/}
+
+          {/* <Route exact path ="/book" component={Book}/> */}
           {<Book>
           </Book>}
+          {/* END BOOK LOGIC*/}
 
           <Footer/>
         </div>
+
       </Router>
     );
   }

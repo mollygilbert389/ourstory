@@ -271,13 +271,10 @@ class Login extends Component {
 
   handleClose() {
     this.setState({ show: false });
+    this.setState({started: true})
     setTimeout(this.resetActiveUser, 90000)
   }
 
-  alertme = () => {
-    setTimeout(this.handleShow, 90000)
-    console.log(this.state.activeUser)
-  }
 
  
   handleShow() {
@@ -290,7 +287,6 @@ class Login extends Component {
         this.setState({ show: true });
       }
     })
-      // window.location.reload()
   }
 
 
@@ -322,13 +318,6 @@ class Login extends Component {
             </span>
           )}
         {this.newUserOrNot()}
-        {/* <TextBox
-          // onClick = {() => this.addText()}
-          isSignedOut={this.state.isSignedIn}
-          value={this.state.sentence}
-          onChange={this.handleInputChange}
-          name="sentence"
-        /> */}
 
         {this.state.isSignedIn ? (
           <div>
