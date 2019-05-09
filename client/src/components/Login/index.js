@@ -73,6 +73,7 @@ class Login extends Component {
     });
     this.loadBooks();
     this.getWords();
+    this.tweetDelay();
   }
 
   newUserOrNot = () => {
@@ -196,6 +197,15 @@ class Login extends Component {
       )
       .catch(err => console.log(err));
   };
+
+  tweetDelay = () => {
+    setTimeout(this.tweet, 86400000)
+  }
+
+  tweet = () => {
+    axios.get("/api/books/tweeter")
+    this.tweetDelay()
+  }
 
   // tweet = () => {
   //   axios.get("http://localhost:3001/api/books/tweeter")
