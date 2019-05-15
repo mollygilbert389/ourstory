@@ -97,7 +97,6 @@ class Login extends Component {
       console.log("can not add sentence")
       return ( null,
       <div className="empty"></div>
-      $("#startbtn").hide()
       )
     };
 
