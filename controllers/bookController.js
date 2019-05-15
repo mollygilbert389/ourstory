@@ -75,10 +75,10 @@ module.exports = {
   checkActive: function(req, res) {
     console.log(db.Queue)
     db.Queue
-    .findById({ _id: "5cd0c4aea342e343b2307cbd" })
+    .findById({ _id: "5cd0b97124420e002aea1472" })
       .then((dbModel) => {
         if (dbModel.active === false) {
-          db.Queue.findByIdAndUpdate("5cd0c4aea342e343b2307cbd", {"active": true})
+          db.Queue.findByIdAndUpdate("5cd0b97124420e002aea1472", {"active": true})
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
         } else {
@@ -88,7 +88,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   reset: function(req, res) {
-    db.Queue.findByIdAndUpdate("5cd0c4aea342e343b2307cbd", {"active": false})
+    db.Queue.findByIdAndUpdate("5cd0b97124420e002aea1472", {"active": false})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
   },
