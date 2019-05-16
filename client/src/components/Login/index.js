@@ -218,7 +218,8 @@ class Login extends Component {
     axios.get("/api/books/reset")
     .then((result) => {
       console.log(result.data)
-      window.location.reload()
+//       window.location.reload()
+        setTimeout(30000)
     })
   }
  
@@ -282,7 +283,7 @@ class Login extends Component {
   handleClose() {
     this.setState({ show: false });
     this.setState({started: true})
-    setTimeout(this.resetActiveUser(), 30000)
+    this.resetActiveUser()
   }
 
 
