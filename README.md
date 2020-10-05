@@ -30,7 +30,7 @@ Thanks for checking us out and much love for those who help make this  app go vi
 2. Run npm i
 3. Run npm start at the root level
 
-# Contributors
+## Contributors
 * Eduardo (Eddy) Medina: https://www.linkedin.com/in/eduardo-medina-69509375/
 
 * Molly Gilbert: https://www.linkedin.com/in/molly-s-gilbert-98642a57
